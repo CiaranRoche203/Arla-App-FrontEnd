@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import React from 'react';
 import Home from './Pages/Home';
 import Register from './Pages/Register';
+import ProtectedRoute from './Pages/ProtectedRoute';
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <Router>
         
         <Switch>
-        <Route path="/register" component={Register} exact />
-        <Route path="/" component={Home} exact />
+        <Route path="/" component={Register} exact />
+        <ProtectedRoute path="/home" component={Home} exact />
         </Switch>
       </Router>
     </div>

@@ -1,9 +1,10 @@
+import gmitlogo from './../Images/gmitlogo.jpg'
 function Home(){
     return(
         <h1>
-            Here is the Home Page
+            <img src={gmitlogo} width="800"></img>
         </h1>
     );
 }
 
-export default Home;
+export default Home; 
