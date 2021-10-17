@@ -1,0 +1,70 @@
+img {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 50%;
+    max-width: 50%;
+}
+
+#login-page {
+    background-image: linear-gradient(#d5ecff, #096dd9);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
+
+  #login-card {
+    position: sticky;
+    top: calc(50vh - 144px);
+    left: calc(50vw - 210px);
+    padding-top: 36px;
+    padding-bottom: 66px;
+    width: 420px;
+    text-align: center;
+    background-color: white;
+    border-radius: 22px;
+  }
+
+  .form-style-6 Button {
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 100px;
+    display: inline-block;
+    width: 300px;
+    font: 95% Arial, Helvetica, sans-serif;
+    background-color: #fffffffc;
+  }
+
+  .form-style-6{
+    position: relative;
+      font: 100% Arial, Helvetica, sans-serif;
+      max-width: 400px;
+      margin: 0px auto;
+      padding: 0px;
+      background: #F7F7F7;
+    height: 150px;
+  }
+
+.form-style-6 Form{
+	background: #e3e4e3;
+	padding: 0px;
+	font-size: 140%;
+	font-weight: 100;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	margin: -16px -16px 16px -16px;
+  
+}
+.form-style-6 h2{
+  background: #333333;
+  padding:40px 0;
+  font-size: 140%;
+  font-weight: 300;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin: -16px, 0px, 16px, 0px;
+  font-weight: bold;
+}
