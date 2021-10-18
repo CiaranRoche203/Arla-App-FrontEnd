@@ -3,13 +3,17 @@ import './../Styles/Register.css';
 import { Form, Card, Button, Row, Col, Alert } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import Navbar from './Navbar';
 
 function Register() {
     // email and password registration
     const [emailReg, setEmailReg] = useState("")
     const [passwordReg, setPasswordReg] = useState("")
-
+    //using axios to identify the credentials
     axios.defaults.withCredentials = true;
+    //register function
+    //post method to post the data
+    //sample data for the moment while backend is developed
     const register = () => {
         axios.post('http://localhost:3001/register', {
             email: emailReg, password: passwordReg
@@ -21,6 +25,7 @@ function Register() {
 
     return (
         <div id="login-page">
+            <Navbar />
             <h1>
                 <img src={gmitlogo}></img>
             </h1>
