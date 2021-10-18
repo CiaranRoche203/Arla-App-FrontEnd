@@ -50,12 +50,14 @@ img {
 
 .form-style-6 Form{
 	background: #e3e4e3;
-	padding: 0px;
+	padding: 20px;
 	font-size: 140%;
 	font-weight: 100;
 	text-align: center;
 	color: rgb(0, 0, 0);
-	margin: -16px -16px 16px -16px;
+	margin: auto;
+  border-radius: 0px 0px 15px 15px;
+  
   
 }
 .form-style-6 h2{

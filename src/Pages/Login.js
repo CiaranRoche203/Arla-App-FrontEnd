@@ -4,20 +4,7 @@ import { Form, Card, Button, Row, Col, Alert } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 
-function Register() {
-    // email and password registration
-    const [emailReg, setEmailReg] = useState("")
-    const [passwordReg, setPasswordReg] = useState("")
-
-    axios.defaults.withCredentials = true;
-    const register = () => {
-        axios.post('http://localhost:3001/register', {
-            email: emailReg, password: passwordReg
-        })
-            .then((response) => {
-                console.log(response)
-            });
-    }
+function Login() {
 
     return (
         <div id="login-page">
@@ -29,15 +16,12 @@ function Register() {
                 <div class="form-style-6">
                 <Card>
                     <Form id="loginForm">
-                        <h2>Account Registration</h2>
+                        <h2>Account Login</h2>
 
                         <Form.Group>
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 //method in here
-                                onChange={(e) => {
-                                    setEmailReg(e.target.value)
-                                }}
                                 type="email" name="email" id="email" />
                         </Form.Group>
                         <br>
@@ -46,9 +30,6 @@ function Register() {
                             <Form.Label>Password</Form.Label>
                             <Form.Control
                                 //method in here
-                                onChange={(e) => {
-                                    setPasswordReg(e.target.value)
-                                }}
                                 type="password" name="password"  id="password" />
                         </Form.Group>
                         <br>
@@ -56,7 +37,6 @@ function Register() {
 
                         <Button
                         //method in here 
-                        onClick={register}
                         >
                             Proceed
                         </Button>
@@ -68,4 +48,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default Login;

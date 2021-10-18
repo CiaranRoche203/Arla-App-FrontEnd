@@ -5,6 +5,7 @@ import React from 'react';
 import Home from './Pages/Home';
 import Register from './Pages/Register';
 import ProtectedRoute from './Pages/ProtectedRoute';
+import Login from './Pages/Login';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Router>
         
         <Switch>
-        <Route path="/" component={Register} exact />
+        <Route path="/login" component={Login} exact />
+        <Route path="/register" component={Register} exact />
         <ProtectedRoute path="/home" component={Home} exact />
         </Switch>
       </Router>
