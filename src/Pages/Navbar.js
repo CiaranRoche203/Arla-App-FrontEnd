@@ -6,6 +6,7 @@ import { SidebarData } from './SidebarData';
 import './../Styles/Navbar.css';
 import { IconContext } from 'react-icons';
 import { IoIosConstruct, IoIosLogOut } from 'react-icons/io';
+import { GoogleLogout } from 'react-google-login';
 
 //navbar function
 function Navbar() {
@@ -14,10 +15,12 @@ function Navbar() {
     const showSidebar = () => setSidebar(!sidebar);
 
     //logout function to clear storage
-    const logout = ()=>{
-      localStorage.clear()
-      window.location.href='/';
-
+    
+      const onSuccess =() =>{
+        alert('Logged out')
+        localStorage.clear()
+        //need to adjust this there is an error if someone clicks the logout button when already logged out
+        window.location.href='/';
   }
   //what is displayed
     return (
@@ -46,11 +49,12 @@ function Navbar() {
                 );
               })}
               <li className="nav-text">
-              <Link className='nav-text' onClick={() =>{
-                logout();
-              }}>
-                <IoIosLogOut />
-              <span>Logout</span>
+              <Link className='nav-text'>
+                <GoogleLogout
+                clientId = {process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                buttonText="Logout"
+                onLogoutSuccess = {onSuccess}>
+                </GoogleLogout>
               
             </Link>
             </li>

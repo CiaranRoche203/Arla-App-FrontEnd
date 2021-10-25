@@ -1,4 +1,4 @@
-import gmitlogo from './../Images/gmitlogo.jpg'
+import gmitlogo from './../Images/gmitlogo.png'
 import './../Styles/Register.css';
 import { Form, Card, Button, Row, Col, Alert } from "react-bootstrap";
 import { useEffect, useState } from "react";
@@ -34,10 +34,12 @@ function Register() {
                 <div class="form-style-6">
                 <Card>
                     <Form id="loginForm">
-                        <h2>Account Registration</h2>
+                        <h2>Register</h2>
 
                         <Form.Group>
                             <Form.Label>Email</Form.Label>
+                            <br>
+                            </br>
                             <Form.Control
                                 //method in here
                                 onChange={(e) => {
@@ -49,6 +51,8 @@ function Register() {
                         </br>
                         <Form.Group>
                             <Form.Label>Password</Form.Label>
+                            <br>
+                            </br>
                             <Form.Control
                                 //method in here
                                 onChange={(e) => {
