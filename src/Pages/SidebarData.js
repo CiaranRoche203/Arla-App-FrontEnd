@@ -10,7 +10,7 @@ export const SidebarData = [
       cName: 'nav-text'
     },
     {
-      title: 'Register',
+      title: 'Add Info',
       path: '/register',
       icon: <IoIcons.IoMdCreate />,
       cName: 'nav-text'
