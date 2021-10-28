@@ -7,6 +7,7 @@ import Register from './Pages/Register';
 import ProtectedRoute from './Pages/ProtectedRoute';
 import Login from './Pages/Login';
 import Navbar from './Pages/Navbar';
+import Messenger from './Pages/Messenger';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" component={Login} exact />
         <Route path="/register" component={Register} exact />
         <ProtectedRoute path="/" component={Home} exact />
+        <Route path="/messenger" component={Messenger} exact />
         </Switch>
       </Router>
     </div>

@@ -15,11 +15,16 @@ export const SidebarData = [
       icon: <IoIcons.IoMdCreate />,
       cName: 'nav-text'
     },
-    {
+      {
+        title: 'Messenger',
+        path: '/messenger',
+        icon: <IoIcons.IoMdMail/>,
+        cName: 'nav-text'
+      },
+      {
         title: 'Login',
         path: '/login',
         icon: <IoIcons.IoMdLogIn />,
         cName: 'nav-text'
       },
-
   ];
