@@ -16,10 +16,7 @@ function Register() {
     //year
     const [yearReg, setYearReg] = useState("")
     //more info
-    /*
-    *
-    *
-    */
+    const [infoReg, setInfoReg] = useState("")
 
     //country list
     const[value, setValue] = useState('')
@@ -32,9 +29,9 @@ function Register() {
 
     //post the details to the backend
     const addDetails = () => {
-        console.log(nameReg, courseReg, yearReg, value);
+        console.log(nameReg, courseReg, yearReg, value, infoReg);
         axios.post('http://localhost:3001/register', {
-            name: nameReg, course: courseReg, year: yearReg, country: value
+            name: nameReg, course: courseReg, year: yearReg, country: value, info: infoReg
         })
         .then((response) => {
             console.log(response)
@@ -105,7 +102,10 @@ function Register() {
                             <Form.Label>More info about you</Form.Label>
                             <br>
                             </br>
-                            <Form.Control as="textarea" rows={3} />
+                            <Form.Control
+                             onChange={(e) => {
+                                setInfoReg(e.target.value)
+                            }} as="textarea" rows={3} />
                         </Form.Group>
 
                         <Button

@@ -30,12 +30,12 @@ function Login() {
 
                 <Card>
                     <Form id="loginForm">
-                        <h2>Login</h2>
-
-                        <Form.Group>
+                        <h2>Login or Sign Up</h2>
+                        <Form.Group >
                             <GoogleLogin
+
                                 clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                                buttonText="Login"
+                                buttonText="Login With Google"
                                 onSuccess={onSuccess}
                                 onFailure={onFailure}
                                 cookiePolicy={'single_host_origin'}
@@ -43,18 +43,6 @@ function Login() {
 
                             />
                         </Form.Group>
-                        <br>
-                        </br>
-                        <Form.Group>
-                            <Form.Label>Login With Facebook</Form.Label>
-                            <br>
-                            </br>
-                            <Button>
-                                <FacebookOutlined />
-                            </Button>
-                        </Form.Group>
-                        <br>
-                        </br>
                     </Form>
                 </Card>
             </div>
