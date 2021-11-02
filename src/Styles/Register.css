@@ -70,3 +70,19 @@ img {
   margin: -16px, 0px, 16px, 0px;
   font-weight: bold;
 }
+.chats-page {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.logo-tab {
+  position: absolute;
+  left: 22px;
+  top: 12px;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}

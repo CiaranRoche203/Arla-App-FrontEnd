@@ -10,14 +10,31 @@ import Auth from './Auth';
 
 function Login() {
     const onSuccess = (res) => {
+        const googleresponse = {
+            Name: res.profileObj.name,
+            email: res.profileObj.email,
+            token: res.googleId,
+            Image: res.profileObj.imageUrl,
+
+
+        };
         console.log('Login Success')
         Auth.authenticate();
+        axios.post('http://localhost:3001/register', googleresponse)
 
+            .then((result) => {
+                let responseJson = result;
+
+                sessionStorage.setItem("userData", JSON.stringify(result));
+
+            });
     };
 
     const onFailure = (res) => {
         console.log('Login Failed');
     };
+
+
     return (
         <div id="login-page">
             <Navbar />
