@@ -47,6 +47,15 @@ img {
       background: #F7F7F7;
     height: 150px;
   }
+  .form-style-8{
+    
+      font: 100% Arial, Helvetica, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 0px;
+      background: #F7F7F7;
+    height: 200px;
+  }
 
 .form-style-6 Form{
 	background: #e3e4e3;

@@ -1,6 +1,6 @@
 import { NeoGraph, ResponsiveNeoGraph} from './NeoGraph'
 
-const NEO4J_URI = "bolt://100.24.106.45:7687";
+const NEO4J_URI = "";
 const NEO4J_USER = "test";
 const NEO4J_PASSWORD = "test";
 

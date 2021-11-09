@@ -30,7 +30,7 @@ function Register() {
     //post the details to the backend
     const addDetails = () => {
         console.log(nameReg, courseReg, yearReg, infoReg);
-        axios.post('http://localhost:3001/register', {
+        axios.post('http://localhost:3001/login', {
             name: nameReg, course: courseReg, year: yearReg, info: infoReg
         })
         .then((response) => {
