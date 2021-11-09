@@ -27,4 +27,10 @@ export const SidebarData = [
         icon: <IoIcons.IoMdLogIn />,
         cName: 'nav-text'
       },
+      {
+        title: 'Graph',
+        path: '/graph',
+        icon: <IoIcons.IoIosAddCircle />,
+        cName: 'nav-text'
+      },
   ];
