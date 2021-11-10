@@ -5,6 +5,7 @@ import './../Styles/Register.css';
 import { Form, Card, Button, Row, Col, Alert } from "react-bootstrap";
 import Navbar from './Navbar';
 import React from 'react';
+
 function Home() {
   const [information, getInformation] = useState([]);
   const [profile, getProfile] = useState([]);
@@ -76,6 +77,12 @@ function Home() {
                   disabled />
                 <br>
                 </br>
+                <Form.Control name="name"
+                  placeholder="Basketball"
+                  value={information.fields}
+                  disabled />
+                <br>
+                </br>
               </Form>
             </Card>
           </div>
@@ -109,6 +116,7 @@ function Home() {
       <div >
         {displayProfilePic()}
         {displayData()}
+       
       </div>
     </div>
   );

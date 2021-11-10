@@ -9,7 +9,6 @@ import Login from './Pages/Login';
 import Navbar from './Pages/Navbar';
 import Messenger from './Pages/Messenger';
 import GraphGraph from './Pages/Graph'
-
 function App() {
   return (
     <div style={{ fontFamily: 'Avenir' }}>

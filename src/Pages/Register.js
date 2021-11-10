@@ -7,8 +7,9 @@ import Select from 'react-select'
 import countryList from 'react-select-country-list'
 
 function Register() {
-    
+
     //set states 
+
     //name
     const [nameReg, setNameReg] = useState("")
     //course
@@ -19,8 +20,22 @@ function Register() {
     const [infoReg, setInfoReg] = useState("")
 
     //country list
-    const[value, setValue] = useState('')
+    const [value, setValue] = useState('')
     const options = useMemo(() => countryList().getData(), [])
+
+    const [fields, setFields] = useState([{ value: null }]);
+
+    function handleChange(i, event) {
+        const values = [...fields];
+        values[i].value = event.target.value;
+        setFields(values);
+    }
+    function handleAdd() {
+        const values = [...fields];
+        values.push({ value: null });
+        setFields(values);
+    }
+
 
     //function to set the country
     const changeHandler = value => {
@@ -29,14 +44,31 @@ function Register() {
 
     //post the details to the backend
     const addDetails = () => {
-        console.log(nameReg, courseReg, yearReg, infoReg);
+        console.log(nameReg, courseReg, yearReg, infoReg, fields
+
+        );
         axios.post('http://localhost:3001/login', {
-            name: nameReg, course: courseReg, year: yearReg, info: infoReg
+            name: nameReg, course: courseReg, year: yearReg, info: infoReg, fields: fields
+
         })
-        .then((response) => {
-            console.log(response)
-        });
+            .then((response) => {
+                console.log(response)
+            });
     }
+
+
+    /* const choice = [
+         { value: 'basketball', label: 'Basketball' },
+         { value: 'gaming', label: 'Gaming' },
+         { value: 'football', label: 'Football' },
+         { value: 'driving', label: 'Driving' },
+         { value: 'science', label: 'Science' },
+         { value: 'drama', label: 'Drama' },
+         { value: 'art', label: 'Art' },
+         { value: 'reading', label: 'Reading' },
+         { value: 'exercising', label: 'Exercising' },
+ 
+     ]*/
 
     //display
     return (
@@ -49,11 +81,11 @@ function Register() {
                             <Form.Label>Name</Form.Label>
                             <br>
                             </br>
-                            <Form.Control 
-                            onChange={(e) => {
-                                setNameReg(e.target.value)
-                            }}
-                            type="name" name="name" id="name" >
+                            <Form.Control
+                                onChange={(e) => {
+                                    setNameReg(e.target.value)
+                                }}
+                                type="name" name="name" id="name" >
 
                             </Form.Control>
                         </Form.Group>
@@ -63,11 +95,11 @@ function Register() {
                             <Form.Label>Course</Form.Label>
                             <br>
                             </br>
-                            <Form.Control 
-                             onChange={(e) => {
-                                setCourseReg(e.target.value)
-                            }}
-                            name="course" id="course" >
+                            <Form.Control
+                                onChange={(e) => {
+                                    setCourseReg(e.target.value)
+                                }}
+                                name="course" id="course" >
 
                             </Form.Control>
                         </Form.Group>
@@ -78,11 +110,11 @@ function Register() {
                             <Form.Label>Graduate Year</Form.Label>
                             <br>
                             </br>
-                            <Form.Control 
-                            onChange={(e) => {
-                                setYearReg(e.target.value)
-                            }}
-                            name="year" id="year" >
+                            <Form.Control
+                                onChange={(e) => {
+                                    setYearReg(e.target.value)
+                                }}
+                                name="year" id="year" >
 
                             </Form.Control>
                         </Form.Group>
@@ -96,6 +128,27 @@ function Register() {
                             <Select options={options} value={value} onChange={changeHandler} />
                         </Form.Group>
 
+
+
+                        <Form.Group>
+                            <Form.Label> More Interests</Form.Label>
+                            <Button onClick={() => handleAdd()}>Add
+
+                            </Button>
+                            {fields.map((field, idx) => {
+                                return (
+                                    <div key={`${field}-${idx}`}>
+                                        <input
+                                            type="text"
+                                            placeholder="Enter text"
+                                            value={field.value || ""}
+                                            onChange={e => handleChange(idx, e)}
+                                        />
+                                    </div>);
+                            })}
+                        </Form.Group>
+
+
                         <br>
                         </br>
                         <Form.Group>
@@ -103,18 +156,21 @@ function Register() {
                             <br>
                             </br>
                             <Form.Control
-                             onChange={(e) => {
-                                setInfoReg(e.target.value)
-                            }} as="textarea" rows={3} />
+                                onChange={(e) => {
+                                    setInfoReg(e.target.value)
+                                }} as="textarea" rows={3} />
                         </Form.Group>
 
                         <Button
-                        //method in here 
-                        onClick={addDetails}
+                            //method in here 
+                            onClick={addDetails}
                         >
                             Proceed
                         </Button>
+
                     </Form>
+
+
                 </Card>
 
             </div>
