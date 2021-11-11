@@ -8,6 +8,7 @@ const NEO4J_PASSWORD = "test";
 const GraphGraph = () => {
   return (
     <div className="App" style={{ fontFamily: "Quicksand" }}>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
       <h1>React Neovis Example</h1>
       <ResponsiveNeoGraph
         containerId={"id0"}

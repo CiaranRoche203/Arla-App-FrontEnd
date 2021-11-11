@@ -14,6 +14,15 @@ img {
     left: 0px;
     right: 0px;
   }
+  #login-page2 {
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    column-count: 3;
+    
+  }
 
   #login-card {
     position: sticky;
@@ -26,7 +35,11 @@ img {
     background-color: white;
     border-radius: 22px;
   }
-
+  .image-test{
+    width: 150;
+    height: 150;
+    overflow: "hidden";
+  }
   .form-style-6 Button {
     cursor: pointer;
     color: rgb(0, 0, 0);
@@ -37,6 +50,7 @@ img {
     font: 95% Arial, Helvetica, sans-serif;
     background-color: #fffffffc;
   }
+  
 
   .form-style-6{
     position: relative;
@@ -47,15 +61,29 @@ img {
       background: #F7F7F7;
     height: 150px;
   }
-  .form-style-8{
-    
-      font: 100% Arial, Helvetica, sans-serif;
-      max-width: 800px;
-      margin: auto;
+  .display-name{
+    font: 100% Arial, Helvetica, sans-serif;
+    max-width: 400px;
+      margin: 0px auto;
       padding: 0px;
-      background: #F7F7F7;
-    height: 200px;
   }
+  .form-style-8{
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font: 200% Arial, Helvetica, sans-serif;
+    
+  }
+
+  
+.header{
+  font: 100% Arial, Helvetica, sans-serif;
+	height:100px;
+	margin:0;
+	padding:0;
+	}
+	
 
 .form-style-6 Form{
 	background: #e3e4e3;

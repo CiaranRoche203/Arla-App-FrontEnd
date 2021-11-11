@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.23.0",
     "cors": "^2.8.5",
+    "mdb-react-ui-kit": "^1.6.0",
     "neo4j-driver": "^4.3.4",
     "neovis.js": "^1.6.0",
     "react": "^17.0.2",

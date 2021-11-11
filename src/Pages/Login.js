@@ -37,6 +37,7 @@ function Login() {
 
     return (
         <div id="login-page">
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
             <Navbar />
             <h1>
                 <img src={gmitlogo}></img>

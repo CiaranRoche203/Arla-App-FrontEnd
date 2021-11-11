@@ -54,6 +54,7 @@ function Register() {
             .then((response) => {
                 console.log(response)
             });
+        
     }
 
 
@@ -73,6 +74,7 @@ function Register() {
     //display
     return (
         <div id="login-page">
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
             <Navbar />
             <div class="form-style-6">
                 <Card>
@@ -138,9 +140,10 @@ function Register() {
                             {fields.map((field, idx) => {
                                 return (
                                     <div key={`${field}-${idx}`}>
-                                        <input
+                                        <br></br>
+                                        <Form.Control
                                             type="text"
-                                            placeholder="Enter text"
+                                            placeholder="Enter Interests"
                                             value={field.value || ""}
                                             onChange={e => handleChange(idx, e)}
                                         />
