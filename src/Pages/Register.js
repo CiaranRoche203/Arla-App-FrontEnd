@@ -44,11 +44,11 @@ function Register() {
 
     //post the details to the backend
     const addDetails = () => {
-        console.log(nameReg, courseReg, yearReg, infoReg, fields
+        console.log(nameReg, courseReg, yearReg, infoReg, fields, value
 
         );
         axios.post('http://localhost:3001/login', {
-            name: nameReg, course: courseReg, year: yearReg, info: infoReg, fields: fields
+            name: nameReg, course: courseReg, year: yearReg, info: infoReg, fields: fields, country: value
 
         })
             .then((response) => {
