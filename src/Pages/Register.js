@@ -44,11 +44,20 @@ function Register() {
 
     //post the details to the backend
     const addDetails = () => {
-        console.log(nameReg, courseReg, yearReg, infoReg, fields, value
+        axios.post('http://localhost:3001/people', {
+            name: nameReg, bio: infoReg
 
-        );
-        axios.post('http://localhost:3001/login', {
-            name: nameReg, course: courseReg, year: yearReg, info: infoReg, fields: fields, country: value
+        })
+            .then((response) => {
+                console.log(response)
+            });
+        
+    }
+    const addRelationships1 = () => {
+        console.log(nameReg, courseReg)
+        axios.post(`http://localhost:3001/people/interest/:${nameReg}`, {
+            name: nameReg, interest: fields
+           
 
         })
             .then((response) => {
@@ -57,19 +66,29 @@ function Register() {
         
     }
 
+     const addCourse = () => {
+        axios.post(`http://localhost:3001/course`, {
+            name: courseReg
 
-    /* const choice = [
-         { value: 'basketball', label: 'Basketball' },
-         { value: 'gaming', label: 'Gaming' },
-         { value: 'football', label: 'Football' },
-         { value: 'driving', label: 'Driving' },
-         { value: 'science', label: 'Science' },
-         { value: 'drama', label: 'Drama' },
-         { value: 'art', label: 'Art' },
-         { value: 'reading', label: 'Reading' },
-         { value: 'exercising', label: 'Exercising' },
- 
-     ]*/
+        })
+            .then((response) => {
+                console.log(response)
+            });
+        
+    }
+    const addRelationships2 = () => {
+        console.log(nameReg, courseReg)
+        axios.post(`http://localhost:3001/people/course/:${nameReg}`, {
+            name: nameReg, course: courseReg
+           
+
+        })
+            .then((response) => {
+                console.log(response)
+            });
+        
+    }
+
 
     //display
     return (
@@ -91,6 +110,14 @@ function Register() {
 
                             </Form.Control>
                         </Form.Group>
+                        <Button
+                            //method in here 
+                            onClick={addDetails}
+                            >
+          
+                            Add name
+                        </Button>
+                        
                         <br>
                         </br>
                         <Form.Group>
@@ -105,7 +132,13 @@ function Register() {
 
                             </Form.Control>
                         </Form.Group>
-
+                        <Button
+                            //method in here 
+                            onClick={addCourse}
+                            >
+          
+                            Add course
+                        </Button>
                         <br>
                         </br>
                         <Form.Group>
@@ -164,11 +197,14 @@ function Register() {
                                 }} as="textarea" rows={3} />
                         </Form.Group>
 
+                       
+
                         <Button
                             //method in here 
-                            onClick={addDetails}
-                        >
-                            Proceed
+                            onClick={addRelationships1, addRelationships2}
+                            >
+          
+                            Create Profile
                         </Button>
 
                     </Form>

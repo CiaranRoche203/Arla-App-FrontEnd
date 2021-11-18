@@ -19,8 +19,10 @@ function Login() {
 
         };
         console.log('Login Success')
+        console.log(googleresponse)
         Auth.authenticate();
         axios.post('http://localhost:3001/register', googleresponse)
+       
 
             .then((result) => {
                 let responseJson = result;

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Neovis from "neovis.js/dist/neovis.js";
 
 
+
 const NeoGraph = (props) => {
     const {
       width,
@@ -20,24 +21,26 @@ const NeoGraph = (props) => {
     useEffect(() => {
       const config = {
         container_id: visRef.current.id,
-        server_url: neo4jUri,
+        //server_url: neo4jUri,
         server_user: neo4jUser,
         server_password: neo4jPassword,
         labels: {
-          Troll: {
+          Person: {
             caption: "user_key",
             size: "pagerank",
             community: "community",
           },
         },
-        relationships: {
+        Course: {
           RETWEETS: {
             caption: false,
             thickness: "count",
           },
         },
         initial_cypher:
-          "MATCH (tw:Tweet)-[rel:HAS_TAG]->(ht:Hashtag) RETURN tw, ht, rel LIMIT 10",
+          "MATCH (:Person {name: 'Pasha'})-[r]-() RETURN r",
+
+          
       };
       const vis = new Neovis(config);
       vis.render();

@@ -9,6 +9,8 @@ import Login from './Pages/Login';
 import Navbar from './Pages/Navbar';
 import Messenger from './Pages/Messenger';
 import GraphGraph from './Pages/Graph'
+import VivaGraph from './Pages/VivaGraph';
+
 function App() {
   return (
     <div style={{ fontFamily: 'Avenir' }}>
@@ -16,11 +18,12 @@ function App() {
         <Navbar />
 
         <Switch>
-        <Route path="/login" component={Login} exact />
+        
         <Route path="/register" component={Register} exact />
-        <ProtectedRoute path="/" component={Home} exact />
+        <Route path="/" component={Home} exact />
         <Route path="/messenger" component={Messenger} exact />
-        <Route path="/graph" component={GraphGraph} exact />
+        <Route path="/graph" component={VivaGraph} exact />
+  
         </Switch>
       </Router>
     </div>
