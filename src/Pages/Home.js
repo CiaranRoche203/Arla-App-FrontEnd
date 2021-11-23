@@ -10,6 +10,10 @@ function Home() {
   const [information, getInformation] = useState([]);
   const [profile, getProfile] = useState([]);
 
+  var course = []
+  var country = []
+ var course_year = []
+ var interest = []
 
   useEffect(() => {
     getAllInformation();
@@ -18,13 +22,20 @@ function Home() {
 
 
   const getAllInformation = () => {
-    axios.get(`http://localhost:3001/people/:${information.name}`)
+    axios.get(`http://localhost:3001/people/all/Ciaran`)
       .then((response) => {
         console.log(response);
         const myInfo = response.data;
+        course = myInfo.course
+        country = myInfo.country
+        course_year = myInfo.course_Year
+        interest = myInfo.interest
+        console.log(course, country, course_year, interest)
         getInformation(myInfo);
       })
   }
+
+
   /*const getProfilePic = () => {
     axios.get('http://localhost:3001/people')
       .then((response) => {
@@ -33,86 +44,7 @@ function Home() {
         getProfile(myInfo);
       })
   }*/
-  const displayData = () => {
-    return information ? (
-      information.map((information) => {
-        return (
-          <div class="form-style-8">
-            <div >
-              <Card >
-                <Form id="loginForm">
-                  <Form.Group>
-                    <Form.Label>
-                      Name
-                    </Form.Label>
-                    <Form.Control name="name"
-                      placeholder="Name"
-                      value={information.name}
-                      disabled
-                      style={{ height: 60, fontSize: 24 }}
-                    />
-                    <br>
-                    </br>
-                    <Form.Label>
-                      Course
-                    </Form.Label>
-                    <Form.Control name="course"
-                      placeholder="Course"
-                      value={information.course}
-                      style={{ height: 60, fontSize: 24 }}
-                      disabled
-
-
-                    />
-                    <br>
-                    </br>
-                    <Form.Label>
-                      Year Graduated
-                    </Form.Label>
-                    <Form.Control name="name"
-                      placeholder="Year"
-                      value={information.year}
-                      style={{ height: 60, fontSize: 24 }}
-                      disabled
-                    />
-
-                    <br>
-                    </br>
-                    <Form.Label>
-                      More Information about you
-                    </Form.Label>
-                    <Form.Control name="name"
-                      placeholder="More info"
-                      value={information.info}
-                      style={{ height: 60, fontSize: 24 }}
-                      disabled />
-                    <br>
-                    </br>
-                    <Form.Label>
-                      Interests
-                    </Form.Label>
-                    <Form.Control name="name"
-                      placeholder="Basketball"
-                      value={information.fields}
-                      style={{ height: 60, fontSize: 24 }}
-                      disabled />
-                    <br>
-                    </br>
-                  </Form.Group>
-                  <Button style={{ height: 100, fontSize: 32, backgroundColor: "black", color: "white" }} href="/register">
-                    Edit your Profile
-                  </Button>
-                </Form>
-              </Card>
-
-            </div>
-          </div>
-        );
-      })
-    ) : (
-      <h3>No data yet</h3>
-    );
-  }
+ 
   /*const displayProfilePic = () => {
     return profile ? (
       profile.map((profile) => {
@@ -141,25 +73,71 @@ function Home() {
     <div id="login-page">
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
       <Navbar />
+    
+            <Card >
+              <Form id="loginForm">
+                <Form.Group>
+                <Form.Label>
+                  Course
+                </Form.Label>
+                <Form.Control name="course"
+                  placeholder="Course"
+                  value={information.course}
+                  style={{ height: 60, fontSize: 24 }}
+                  disabled
 
-      <Container id="login-page2">
 
-        <Row>
-          <Col>
-            {/*
-            displayProfilePic()
-            */}
+                />
 
-          </Col>
-          <Col >
+                <br>
+                </br>
+                <Form.Label>
+                  Country
+                </Form.Label>
+                <Form.Control name="country"
+                  placeholder="country"
+                  value={information.country}
+                  style={{ height: 60, fontSize: 24 }}
+                  disabled
 
-            {displayData()}
-          </Col>
-          <Col >
-          </Col>
-        </Row>
-      </Container>
-    </div>
+
+                  
+                />
+                <br>
+                </br>
+                <Form.Label>
+                  Year(s)
+                </Form.Label>
+                <Form.Control name="year"
+                  placeholder="year"
+                  value={information.course_Year}
+                  style={{ height: 60, fontSize: 24 }}
+                  disabled
+
+
+                />
+                <br>
+                </br>
+                <Form.Label>
+                  Year(s)
+                </Form.Label>
+                <Form.Control name="interest"
+                  placeholder="interest"
+                  value={information.interest}
+                  style={{ height: 60, fontSize: 24 }}
+                  disabled
+
+                />
+                
+                </Form.Group>
+              </Form>
+
+
+            </Card>
+
+    
+
+      </div>
   );
 }
 
