@@ -10,6 +10,7 @@ import Navbar from './Pages/Navbar';
 import Messenger from './Pages/Messenger';
 import GraphGraph from './Pages/Graph'
 import VivaGraph from './Pages/VivaGraph';
+import Vivas from './Pages/Vivas';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="/register" component={Register} exact />
         <Route path="/" component={Home} exact />
         <Route path="/messenger" component={Messenger} exact />
-        <Route path="/graph" component={VivaGraph} exact />
+        <Route path="/graph" component={GraphGraph} exact />
   
         </Switch>
       </Router>

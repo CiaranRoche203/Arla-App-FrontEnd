@@ -21,7 +21,7 @@ const NeoGraph = (props) => {
     useEffect(() => {
       const config = {
         container_id: visRef.current.id,
-        //server_url: neo4jUri,
+        server_url: neo4jUri,
         server_user: neo4jUser,
         server_password: neo4jPassword,
         labels: {
@@ -31,14 +31,14 @@ const NeoGraph = (props) => {
             community: "community",
           },
         },
-        Course: {
-          RETWEETS: {
+        relationships: {
+          Course: {
             caption: false,
             thickness: "count",
           },
         },
         initial_cypher:
-          "MATCH (:Person {name: 'Pasha'})-[r]-() RETURN r",
+          "MATCH p=(:Person)-[:GRADUATED]->(:Course) return p",
 
           
       };
