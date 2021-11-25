@@ -7,7 +7,7 @@ const VivaGraph = () => {
   const [information, getInformation] = useState([]);
 
   var name = []
-  
+
   var [array, getArray] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const VivaGraph = () => {
         for (var i = 0; i < 2; i++) {
           var myInfo = response.data.person[i];
           array.push(myInfo.name)
-          
+
           //bio = myInfo.people
           console.log(array)
           getInformation(myInfo);
@@ -30,12 +30,12 @@ const VivaGraph = () => {
         }
       })
   }
-  
+
 
   var links = [
-    { source:" Bachelor of Science (Honours) in Computing in Software Development" , target: array[0] },
-    { source:" Bachelor of Science (Honours) in Computing in Software Development" , target: array[1] },
-    
+    { source: " Bachelor of Science (Honours) in Computing in Software Development", target: array[0] },
+    { source: " Bachelor of Science (Honours) in Computing in Software Development", target: array[1] },
+
   ];
   console.log(links)
 
@@ -115,7 +115,7 @@ const VivaGraph = () => {
   }
   return (
     <div>
-     
+
 
     </div>
   );

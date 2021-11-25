@@ -2,9 +2,9 @@ import { NeoGraph, ResponsiveNeoGraph} from './NeoGraph'
 import { NEOVIS_DEFAULT_CONFIG } from 'neovis.js'; 
 import { configure } from '@testing-library/dom';
 
-const NEO4J_URI = "neo4j+s://f6ec99dd.databases.neo4j.io:7687";
+const NEO4J_URI = "neo4j://localhost:7687";
 const NEO4J_USER = "neo4j";
-const NEO4J_PASSWORD = "RimrUr_ovCfoXxu3ty5IibqWaC0-sp4kjQqgg7JNWyM";
+const NEO4J_PASSWORD = "testing";
 
 
 const GraphGraph = () => {
