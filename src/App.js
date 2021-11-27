@@ -9,7 +9,8 @@ import Login from './Pages/Login';
 import Navbar from './Pages/Navbar';
 import Messenger from './Pages/Messenger';
 import GraphGraph from './Pages/Graph'
-import VivaGraph from './Pages/VivaGraph';
+import VivaGraph from './Pages/Course-Graph/Software';
+import SelectCourse from './Pages/VivaGraph';
 
 
 function App() {
@@ -20,9 +21,12 @@ function App() {
 
         <Switch>
         <Route path="/register" component={Register} exact />
-        <Route path="/" component={Home} exact />
+        <ProtectedRoute path="/" component={Home} exact />
         <Route path="/messenger" component={Messenger} exact />
-        <Route path="/graph" component={VivaGraph} exact />
+       
+        <Route path="/graph" component={SelectCourse} exact />
+        <Route path="/software" component={VivaGraph} exact />
+        
         </Switch>
       </Router>
     </div>
