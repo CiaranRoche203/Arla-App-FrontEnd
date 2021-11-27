@@ -11,6 +11,8 @@ import Messenger from './Pages/Messenger';
 import GraphGraph from './Pages/Graph'
 import VivaGraph from './Pages/Course-Graph/Software';
 import SelectCourse from './Pages/VivaGraph';
+import Business from './Pages/Course-Graph/Business';
+import EditProfile from './Pages/Editprofile';
 
 
 function App() {
@@ -21,12 +23,14 @@ function App() {
 
         <Switch>
         <Route path="/register" component={Register} exact />
-        <ProtectedRoute path="/" component={Home} exact />
+        <Route path="/" component={Home} exact />
         <Route path="/messenger" component={Messenger} exact />
        
         <Route path="/graph" component={SelectCourse} exact />
         <Route path="/software" component={VivaGraph} exact />
-        
+        <Route path="/business" component={Business} exact />
+        <Route path="/edit" component={EditProfile} exact />
+       
         </Switch>
       </Router>
     </div>

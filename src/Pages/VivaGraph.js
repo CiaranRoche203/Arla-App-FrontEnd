@@ -12,6 +12,7 @@ const SelectCourse = () => {
   const options = [
     { value: 'Digital Media', label: 'Digital Media' },
     { value: 'Software', label: 'Software' },
+    { value: 'Bachelor of Business (Honours)', label: 'Bachelor of Business (Honours)' },
   ]
 
   const changeHandler = value => {
@@ -22,6 +23,12 @@ const SelectCourse = () => {
       window.location.href = '/software'
       //window.open('/register', '_blank').focus();
     }
+    if (value.label == "Bachelor of Business (Honours)"){
+      console.log("Chosen Bachelor of Business (Honours)")
+      window.location.href = '/business'
+      //window.open('/register', '_blank').focus();
+    }
+
 }
 
 

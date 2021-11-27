@@ -35,6 +35,13 @@ function Home() {
       })
   }
 
+  const editProfile = () => {
+    console.log("Editing Profile")
+    window.location.href = '/edit'
+
+  }
+
+
 
   /*const getProfilePic = () => {
     axios.get('http://localhost:3001/people')
@@ -130,7 +137,12 @@ function Home() {
                 />
                 
                 </Form.Group>
+                <Button
+                onClick={editProfile}>
+  Edit Profile
+</Button>
               </Form>
+
 
 
             </Card>

@@ -57,7 +57,7 @@ function Register() {
 // add to backend neo4j
     const addCourse = () => {
         axios.post(`http://localhost:3001/course`, {
-            name: courseReg
+            name: courseReg, year: yearReg
 
         })
             .then((response) => {
@@ -109,7 +109,7 @@ function Register() {
     const addRelationships2 = () => {
         console.log(courseReg)
         axios.post(`http://localhost:3001/people/course/:${nameReg}`, {
-            course: courseReg
+            name: nameReg, course: courseReg
         })
             .then((response) => {
                 console.log(response)
