@@ -10,45 +10,55 @@ const VivaGraph = () => {
 
   var [array, getArray] = useState([]);
 
+  var size =[]
+  var links = [];
+
   useEffect(() => {
     getAllInformation();
   }, []);
 
-
   const getAllInformation = () => {
     axios.get(`http://localhost:3001/course/all/Bachelor of Science (Honours) in Computing in Software Development`)
       .then((response) => {
-        //console.log(response);
-        for (var i = 0; i < 2; i++) {
+        //console.log(response.data.person.length);
+        size = response.data.person.length;
+        //size.push(response.data.person.length)
+        for (var i = 0; i < response.data.person.length; i++) {
           var myInfo = response.data.person[i];
           array.push(myInfo.name)
 
           //bio = myInfo.people
-          console.log(array)
+          //console.log(array)
           getInformation(myInfo);
-          getArray(array);
+          //getArray(array);
         }
+      
       })
   }
-
-
-  var links = [
-    { source: " Bachelor of Science (Honours) in Computing in Software Development", target: array[0] },
-    { source: " Bachelor of Science (Honours) in Computing in Software Development", target: array[1] },
-
-  ];
-  console.log(links)
-
-  var nodes = {};
-
-  // Compute the distinct nodes from the links.
-  links.forEach(function (link) {
-    link.source = nodes[link.source] || (nodes[link.source] = { name: link.source });
-    link.target = nodes[link.target] || (nodes[link.target] = { name: link.target });
-  });
-
+  //.console.log(size)
+    //console.log(size ,"is")
+    console.log(array.length, " is this much")
+    for (var j = 0; j < array.length; j++) {
+      //console.log(array)
+      links.push({
+        source: "Bachelor of Science (Honours) in Computing in Software Development",
+        target: array[j] });
+    }
+    console.log("Here", links);
+   
+   
+    //console.log(links)
+  
+    var nodes = {};
+  
+    // Compute the distinct nodes from the links.
+    links.forEach(function (link) {
+      link.source = nodes[link.source] || (nodes[link.source] = { name: link.source });
+      link.target = nodes[link.target] || (nodes[link.target] = { name: link.target });
+    });
+  
   var width = 1000,
-    height = 500;
+    height = 200;
 
   var force = d3.layout.force()
     .nodes(d3.values(nodes))
@@ -59,23 +69,12 @@ const VivaGraph = () => {
     .on("tick", tick)
     .start();
 
-  var svg = d3.select("body").append("svg")
+  var svg = d3.select("div").append("svg")
     .attr("width", width)
     .attr("height", height);
 
   // Per-type markers, as they don't inherit styles.
-  svg.append("defs").selectAll("marker")
-    .data(["suit", "licensing", "resolved"])
-    .enter().append("marker")
-    .attr("id", function (d) { return d; })
-    .attr("viewBox", "0 -5 10 10")
-    .attr("refX", 15)
-    .attr("refY", -1.5)
-    .attr("markerWidth", 6)
-    .attr("markerHeight", 6)
-    .attr("orient", "auto")
-    .append("path")
-    .attr("d", "M0,-5L10,0L0,5");
+
 
   var path = svg.append("g").selectAll("path")
     .data(force.links())
@@ -114,8 +113,7 @@ const VivaGraph = () => {
     return "translate(" + d.x + "," + d.y + ")";
   }
   return (
-    <div>
-
+    <div id="chart1">
 
     </div>
   );
