@@ -90,30 +90,35 @@ function Home() {
           </Col>
           <Col>
             <Card className="w-75 mx-auto mb-4 text-left">
-                <Card.Img style={{maxHeight: "7rem", objectFit:"cover"}} src=""></Card.Img>
+              <Card.Img style={{ maxHeight: "7rem", objectFit: "cover" }} src=""></Card.Img>
 
-                <Card.Body>
-                    <Card.Title>Name (Waiting for users backend)</Card.Title>
-                    <br></br>
-                    <br></br>
-                    <Card.Subtitle value={information.course}
-                    style={{ height: 60, fontSize: 24 }}>Course: <br></br> {information.course}</Card.Subtitle>
-                    <br></br>
-                    <br></br>
-                    <Card.Subtitle value={information.interest}
-                    style={{ height: 60, fontSize: 24 }}>Interests: {information.interest}</Card.Subtitle>
-                     <br></br>
-                    <Card.Subtitle value={information.country}
-                    style={{ height: 60, fontSize: 24 }}>Where you are now: {information.country}</Card.Subtitle>
+              <Card.Body>
+                <Card.Title>Name (Waiting for users backend)</Card.Title>
+                <br></br>
+                <br></br>
+                <Card.Subtitle value={information.course}
+                  style={{ height: 60, fontSize: 24 }}>Course: <br></br> {information.course}</Card.Subtitle>
+                <br></br>
+                <br></br>
+                <Card.Subtitle value={information.interest}
+                  style={{ height: 60, fontSize: 24 }}>Interests: {information.interest}</Card.Subtitle>
+                <br></br>
+                <Card.Subtitle value={information.country}
+                  style={{ height: 60, fontSize: 24 }}>Where you are now: {information.country}</Card.Subtitle>
 
-				        <Card.Text className="mt-3" //value={information.bio}
-                    style={{ height: 60, fontSize: 24 }}>Bio (users)</Card.Text>
-                </Card.Body>
+                <Card.Text className="mt-3" //value={information.bio}
+                  style={{ height: 60, fontSize: 24 }}>Bio (users)</Card.Text>
+              </Card.Body>
 
-                <Card.Footer className="text-left text-muted" //value={information.course_Year}
-                    style={{ height: 60, fontSize: 24 }}>Year (fix)</Card.Footer>
+              <Card.Footer className="text-left text-muted" //value={information.course_Year}
+                style={{ height: 60, fontSize: 24 }}>Year (fix)</Card.Footer>
+              <Button
+                onClick={editProfile}
+              >
+                Edit Profile
+              </Button>
             </Card>
-		)
+
 
           </Col>
 
