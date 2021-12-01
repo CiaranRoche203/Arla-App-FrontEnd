@@ -5,15 +5,15 @@ import './../Styles/Register.css';
 import { Form, Card, Button, Row, Col, Alert, Container } from "react-bootstrap";
 import Navbar from './Navbar';
 import React from 'react';
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from 'mdb-react-ui-kit';
+import 'bootstrap';
 function Home() {
   const [information, getInformation] = useState([]);
   const [profile, getProfile] = useState([]);
 
   var course = []
   var country = []
- var course_year = []
- var interest = []
+  var course_year = []
+  var interest = []
 
   useEffect(() => {
     getAllInformation();
@@ -51,7 +51,7 @@ function Home() {
         getProfile(myInfo);
       })
   }*/
- 
+
   /*const displayProfilePic = () => {
     return profile ? (
       profile.map((profile) => {
@@ -78,78 +78,52 @@ function Home() {
   return (
 
     <div id="login-page">
-      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
       <Navbar />
-    
-            <Card >
-              <Form id="loginForm">
-                <Form.Group>
-                <Form.Label>
-                  Course
-                </Form.Label>
-                <Form.Control name="course"
-                  placeholder="Course"
-                  value={information.course}
-                  style={{ height: 60, fontSize: 24 }}
-                  disabled
+      <Container className="">
+        <Row className="justify-center">
+          <Col>
+            <h2 className="mt-3 text-center">Welcome Profile Here</h2>
 
+            <div className="text-center">
+              <h2> Name</h2>
+            </div>
+          </Col>
+          <Col>
+            <Card className="w-75 mx-auto mb-4 text-left">
+                <Card.Img style={{maxHeight: "7rem", objectFit:"cover"}} src=""></Card.Img>
 
-                />
+                <Card.Body>
+                    <Card.Title>Name (Waiting for users backend)</Card.Title>
+                    <br></br>
+                    <br></br>
+                    <Card.Subtitle value={information.course}
+                    style={{ height: 60, fontSize: 24 }}>Course: <br></br> {information.course}</Card.Subtitle>
+                    <br></br>
+                    <br></br>
+                    <Card.Subtitle value={information.interest}
+                    style={{ height: 60, fontSize: 24 }}>Interests: {information.interest}</Card.Subtitle>
+                     <br></br>
+                    <Card.Subtitle value={information.country}
+                    style={{ height: 60, fontSize: 24 }}>Where you are now: {information.country}</Card.Subtitle>
 
-                <br>
-                </br>
-                <Form.Label>
-                  Country
-                </Form.Label>
-                <Form.Control name="country"
-                  placeholder="country"
-                  value={information.country}
-                  style={{ height: 60, fontSize: 24 }}
-                  disabled
+				        <Card.Text className="mt-3" //value={information.bio}
+                    style={{ height: 60, fontSize: 24 }}>Bio (users)</Card.Text>
+                </Card.Body>
 
-
-                  
-                />
-                <br>
-                </br>
-                <Form.Label>
-                  Year(s)
-                </Form.Label>
-                <Form.Control name="year"
-                  placeholder="year"
-                  value={information.course_Year}
-                  style={{ height: 60, fontSize: 24 }}
-                  disabled
-
-
-                />
-                <br>
-                </br>
-                <Form.Label>
-                  Year(s)
-                </Form.Label>
-                <Form.Control name="interest"
-                  placeholder="interest"
-                  value={information.interest}
-                  style={{ height: 60, fontSize: 24 }}
-                  disabled
-
-                />
-                
-                </Form.Group>
-                <Button
-                onClick={editProfile}>
-  Edit Profile
-</Button>
-              </Form>
-
-
-
+                <Card.Footer className="text-left text-muted" //value={information.course_Year}
+                    style={{ height: 60, fontSize: 24 }}>Year (fix)</Card.Footer>
             </Card>
+		)
 
-    
+          </Col>
 
-      </div>
+
+        </Row>
+      </Container>
+
+
+
+    </div>
   );
 }
 

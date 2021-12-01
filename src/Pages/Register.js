@@ -53,8 +53,8 @@ function Register() {
             });
 
     }
-   
-// add to backend neo4j
+
+    // add to backend neo4j
     const addCourse = () => {
         axios.post(`http://localhost:3001/course`, {
             name: courseReg, year: yearReg
@@ -65,8 +65,8 @@ function Register() {
             });
 
     }
-    
-   //not working ignore this while i find a solution
+
+    //not working ignore this while i find a solution
     const addInterest = () => {
         console.log(fields[0])
         //var params = JSON.stringify(fields)
@@ -127,184 +127,167 @@ function Register() {
             });
 
     }
-    
+
 
 
     //display
     return (
-        <div id="login-page">
-            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-            <Navbar />
+        <div id="login-page3">
 
-            <div className="row">
-                <div class="column">
+            <div className="">
 
+            
+            <Card className="w-25 mx-auto mb-4 text-center" >
+                <Form>
+                    <Form.Group>
+                    <h1>Name</h1>
+                        <Form.Control class="form-control form-control-lg"
+                            onChange={(e) => {
+                                setNameReg(e.target.value)
+                            }}
+                            type="name" name="name" id="name" placeholder="Enter Name..." >
 
-                    <Card >
-                        <Form className="form-style-6">
-                            <Form.Group>
-                                <Form.Label>Name</Form.Label>
-                                <br>
-                                </br>
-                                <Form.Control
-                                    onChange={(e) => {
-                                        setNameReg(e.target.value)
-                                    }}
-                                    type="name" name="name" id="name" >
+                        </Form.Control>
+                        <br>
+                        </br>
+                    </Form.Group>
+                    <Button class="btn-success btn-lg"
+                        //method in here 
+                        onClick={addDetails}
+                    >
 
-                                </Form.Control>
-                            </Form.Group>
-                            <Button
-                                //method in here 
-                                onClick={addDetails}
-                            >
+                        Add name to your profile
+                    </Button>
+                </Form>
+            </Card>
+            <br>
+            </br>
+            <Card className="w-25 mx-auto mb-4 text-center">
 
-                                Add name to your profile
-                            </Button>
-                        </Form>
-                    </Card>
+                <Form >
+
+                    <Form.Group>
+                        <h1>Course</h1>
+                       
+                        <Form.Control class="form-control form-control-lg"
+                            onChange={(e) => {
+                                setCourseReg(e.target.value)
+                            }}
+                            name="course" id="course" placeholder="Enter Course..." >
+
+                        </Form.Control>
+                        <h1>Graduate Year</h1>
+                        
+                        <Form.Control class="form-control form-control-lg"
+                            onChange={(e) => {
+                                setYearReg(e.target.value)
+                            }}
+                            name="year" id="year" placeholder="Enter Year..." >
+
+                        </Form.Control>
+                    </Form.Group>
                     <br>
                     </br>
-                    <Card>
+                    <Button class="btn-success btn-lg"
+                        //method in here 
+                        onClick={addCourse}
+                    >
 
-                        <Form className="form-style-6">
+                        Add course to your profile
+                    </Button>
+                </Form>
+            </Card>
+            
+            <br>
+            </br>
 
-                            <Form.Group>
-                                <Form.Label>Course</Form.Label>
-                                <br>
-                                </br>
-                                <Form.Control
-                                    onChange={(e) => {
-                                        setCourseReg(e.target.value)
-                                    }}
-                                    name="course" id="course" >
-
-                                </Form.Control>
-                            </Form.Group>
-                            <Button
-                                //method in here 
-                                onClick={addCourse}
-                            >
-
-                                Add course to your profile
-                            </Button>
-                        </Form>
-                    </Card>
+            <Card className="w-25 mx-auto mb-4 text-center">
+                <Form>
+                    <Form.Group>
+                        <h1>Where are you now?</h1>
+                        <br>
+                        </br>
+                        <Select  options={options} value={value} onChange={changeHandler} />
+                    </Form.Group>
                     <br>
                     </br>
-                    <Card>
+                    <Button class="btn-success btn-lg"
+                        //method in here 
+                        onClick={addCountry}
+                    >
 
-                        <Form className="form-style-6">
-                            <Form.Group>
-                                <Form.Label>Graduate Year</Form.Label>
-                                <br>
-                                </br>
-                                <Form.Control
-                                    onChange={(e) => {
-                                        setYearReg(e.target.value)
-                                    }}
-                                    name="year" id="year" >
+                        Add country to your profile
+                    </Button>
 
-                                </Form.Control>
-                            </Form.Group>
-                        </Form>
-                    </Card>
+                </Form>
+            </Card >
+            <br>
+            </br>
+            <Card className="w-25 mx-auto mb-4 text-center">
+
+                <Form>
+
+                    <Form.Group>
+                    <h1>Interests and Hobbies</h1>
+                        <Button class="btn-dark btn-lg" onClick={() => handleAdd()}>Add Another Interest
+
+                        </Button>
+                        {fields.map((field, idx) => {
+                            return (
+                                <div key={`${field}-${idx}`}>
+                                    <br></br>
+                                    <Form.Control class="form-control form-control-lg"
+                                        type="text"
+                                        placeholder="Enter Interests"
+                                        value={field.value || ""}
+                                        onChange={e => handleChange(idx, e)}
+                                    />
+                                </div>);
+                        })}
+                    </Form.Group>
                     <br>
                     </br>
-                </div>
-                <div class="column">
+                    <Button class="btn-success btn-lg"
+                        //method in here 
+                        onClick={addInterest}
+                    >
 
+                        Add interest(s) to profile
+                    </Button>
 
-                    <Card>
+                </Form>
+            </Card>
+            <br>
+            </br>
+            <br>
+            </br>
+            <Card className="w-25 mx-auto mb-4 text-center">
 
-                        <Form className="form-style-6">
-                            <Form.Group>
-                                <Form.Label>Where are you now?</Form.Label>
-                                <br>
-                                </br>
-                                <Select options={options} value={value} onChange={changeHandler} />
-                            </Form.Group>
-                            <Button
-                                //method in here 
-                                onClick={addCountry}
-                            >
+                <Form>
+                    <Form.Group>
+                    <h1>Some more info about you!</h1>
+                        <br>
+                        </br>
+                        <Form.Control
+                            onChange={(e) => {
+                                setInfoReg(e.target.value)
+                            }} as="textarea" rows={3} />
+                    </Form.Group>
 
-                                Add country to your profile
-                            </Button>
+                </Form>
+                <Button class="btn-success btn-lg"
+                        //method in here 
+                        onClick={addRelationships2}
+                    >
 
-                        </Form>
-                    </Card>
-                    <br>
-                    </br>
-                    <Card>
+                        Create Profile
+                    </Button>
 
-                        <Form className="form-style-6">
-
-                            <Form.Group>
-                                <Form.Label> More Interests</Form.Label>
-                                <Button onClick={() => handleAdd()}>Add
-
-                                </Button>
-                                {fields.map((field, idx) => {
-                                    return (
-                                        <div key={`${field}-${idx}`}>
-                                            <br></br>
-                                            <Form.Control
-                                                type="text"
-                                                placeholder="Enter Interests"
-                                                value={field.value || ""}
-                                                onChange={e => handleChange(idx, e)}
-                                            />
-                                        </div>);
-                                })}
-                            </Form.Group>
-                            
-                            <Button
-                                //method in here 
-                                onClick={addInterest}
-                            >
-
-                               Add interest(s) to profile
-                            </Button>
-
-                        </Form>
-                    </Card>
-                    <br>
-                    </br>
-                    <br>
-                    </br>
-                    <Card>
-
-                        <Form className="form-style-6">
-                            <Form.Group>
-                                <Form.Label>More info about you</Form.Label>
-                                <br>
-                                </br>
-                                <Form.Control
-                                    onChange={(e) => {
-                                        setInfoReg(e.target.value)
-                                    }} as="textarea" rows={3} />
-                            </Form.Group>
-
-
-
-                            <Button
-                                //method in here 
-                                onClick={addRelationships2}
-                            >
-
-                                Create Profile
-                            </Button>
-
-                        </Form>
-
-
-                    </Card>
-                </div>
-
+            </Card>
             </div>
-
         </div>
+
+
 
 
 
