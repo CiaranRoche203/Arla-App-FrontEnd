@@ -8,7 +8,6 @@ import ProtectedRoute from './Pages/ProtectedRoute';
 import Login from './Pages/Login';
 import Navbar from './Pages/Navbar';
 import Messenger from './Pages/Messenger';
-import GraphGraph from './Pages/Graph'
 import VivaGraph from './Pages/Course-Graph/Software';
 import SelectCourse from './Pages/VivaGraph';
 import Business from './Pages/Course-Graph/Business';

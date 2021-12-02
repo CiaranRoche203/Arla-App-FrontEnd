@@ -11,7 +11,7 @@ const VivaGraph = () => {
 
   var [array, getArray] = useState([]);
 
-  var size =[]
+  var size = []
   var links = [];
 
   useEffect(() => {
@@ -33,39 +33,40 @@ const VivaGraph = () => {
           getInformation(myInfo);
           //getArray(array);
         }
-      
+
       })
   }
   //.console.log(size)
-    //console.log(size ,"is")
-    console.log(array.length, " is this much")
-    for (var j = 0; j < array.length; j++) {
-      //console.log(array)
-      links.push({
-        source: "Bachelor of Science (Honours) in Computing in Software Development",
-        target: array[j] });
-    }
-    console.log("Here", links);
-   
-   
-    //console.log(links)
-  
-    var nodes = {};
-  
-    // Compute the distinct nodes from the links.
-    links.forEach(function (link) {
-      link.source = nodes[link.source] || (nodes[link.source] = { name: link.source });
-      link.target = nodes[link.target] || (nodes[link.target] = { name: link.target });
+  //console.log(size ,"is")
+  console.log(array.length, " is this much")
+  for (var j = 0; j < array.length; j++) {
+    //console.log(array)
+    links.push({
+      source: "Bachelor of Science (Honours) in Computing in Software Development",
+      target: array[j]
     });
-  
-  var width = 1000,
-    height = 200;
+  }
+  console.log("Here", links);
+
+
+  //console.log(links)
+
+  var nodes = {};
+
+  // Compute the distinct nodes from the links.
+  links.forEach(function (link) {
+    link.source = nodes[link.source] || (nodes[link.source] = { name: link.source });
+    link.target = nodes[link.target] || (nodes[link.target] = { name: link.target });
+  });
+
+  var width = 2000,
+    height = 1000;
 
   var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance(60)
+    .linkDistance(200)
     .charge(-300)
     .on("tick", tick)
     .start();
@@ -86,7 +87,15 @@ const VivaGraph = () => {
   var circle = svg.append("g").selectAll("circle")
     .data(force.nodes())
     .enter().append("circle")
-    .attr("r", 6)
+    .attr("r", 20)
+    .style('fill', 'green')
+    .on('mouseover', function (d) {
+      var nodeSelection = d3.select(this).style('fill', 'blue');
+
+    })
+    .on("mouseout", function () {
+      var nodeSelection = d3.select(this).style('fill', 'green');
+    })
     .call(force.drag);
 
   var text = svg.append("g").selectAll("text")
@@ -94,7 +103,9 @@ const VivaGraph = () => {
     .enter().append("text")
     .attr("x", 8)
     .attr("y", ".31em")
+    .style("font-size", "1.5em")
     .text(function (d) { return d.name; });
+    
 
   // Use elliptical arc path segments to doubly-encode directionality.
   function tick() {
@@ -113,8 +124,14 @@ const VivaGraph = () => {
   function transform(d) {
     return "translate(" + d.x + "," + d.y + ")";
   }
+  function buttonClick(d) {
+    console.log("clicked on node")
+  }
+
+
   return (
     <div id="chart1">
+
 
     </div>
   );

@@ -58,14 +58,14 @@ const Business = () => {
       link.target = nodes[link.target] || (nodes[link.target] = { name: link.target });
     });
   
-  var width = 1000,
-    height = 200;
+  var width = 2000,
+    height = 1000;
 
   var force = d3.layout.force()
     .nodes(d3.values(nodes))
     .links(links)
     .size([width, height])
-    .linkDistance(60)
+    .linkDistance(200)
     .charge(-300)
     .on("tick", tick)
     .start();
@@ -86,7 +86,8 @@ const Business = () => {
   var circle = svg.append("g").selectAll("circle")
     .data(force.nodes())
     .enter().append("circle")
-    .attr("r", 6)
+    .attr("r", 20)
+    .style('fill', 'green')
     .call(force.drag);
 
   var text = svg.append("g").selectAll("text")
@@ -94,6 +95,7 @@ const Business = () => {
     .enter().append("text")
     .attr("x", 8)
     .attr("y", ".31em")
+    .style("font-size", "1.5em")
     .text(function (d) { return d.name; });
 
   // Use elliptical arc path segments to doubly-encode directionality.
@@ -115,6 +117,7 @@ const Business = () => {
   }
   return (
     <div id="chart1">
+      
 
     </div>
   );
