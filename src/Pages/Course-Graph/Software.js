@@ -2,7 +2,10 @@ import * as d3 from 'd3'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import Popup from 'reactjs-popup';
 
+import { Form, Card, Button, Row, Col, Alert, Container } from "react-bootstrap";
+import 'bootstrap';
 
 const VivaGraph = () => {
   const [information, getInformation] = useState([]);
@@ -89,8 +92,17 @@ const VivaGraph = () => {
     .enter().append("circle")
     .attr("r", 20)
     .style('fill', 'green')
-    .on('mouseover', function (d) {
+    .on('click', function (d) {
       var nodeSelection = d3.select(this).style('fill', 'blue');
+      d3.select("body")
+        .append("h2")
+        .style("position", "relative")
+        .style("justify-content", "center")
+        .style("z-index", "10")
+        .style("visibility", "visible")
+        .style("background", "grey")
+        .text("Details: " + d.name);
+      console.log(d.name);
 
     })
     .on("mouseout", function () {
@@ -105,7 +117,7 @@ const VivaGraph = () => {
     .attr("y", ".31em")
     .style("font-size", "1.5em")
     .text(function (d) { return d.name; });
-    
+
 
   // Use elliptical arc path segments to doubly-encode directionality.
   function tick() {
@@ -113,7 +125,6 @@ const VivaGraph = () => {
     circle.attr("transform", transform);
     text.attr("transform", transform);
   }
-
   function linkArc(d) {
     var dx = d.target.x - d.source.x,
       dy = d.target.y - d.source.y,
@@ -123,9 +134,6 @@ const VivaGraph = () => {
 
   function transform(d) {
     return "translate(" + d.x + "," + d.y + ")";
-  }
-  function buttonClick(d) {
-    console.log("clicked on node")
   }
 
 
