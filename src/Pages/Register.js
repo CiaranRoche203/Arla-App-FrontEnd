@@ -278,7 +278,7 @@ function Register() {
                             <Button class="btn-success btn-lg"
                                 //method in here 
                                 onClick={addRelationships2}
-                               href="/"
+                               //href="/"
                             >
 
                                 Create Profile
