@@ -3,13 +3,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import Popup from 'reactjs-popup';
+import CustomPopup from '../../Components/CustomPopup';
 
 import { Form, Card, Button, Row, Col, Alert, Container } from "react-bootstrap";
 import 'bootstrap';
 
 const VivaGraph = () => {
   const [information, getInformation] = useState([]);
-
+  const [visibility, setVisibility] = useState(false);
   var name = []
 
   var [array, getArray] = useState([]);
@@ -20,6 +21,9 @@ const VivaGraph = () => {
   useEffect(() => {
     getAllInformation();
   }, []);
+  const popupCloseHandler = () => {
+    setVisibility(false);
+  };
 
   const getAllInformation = () => {
     axios.get(`http://localhost:3001/course/all/Bachelor of Science (Honours) in Computing in Software Development`)
@@ -93,6 +97,7 @@ const VivaGraph = () => {
     .attr("r", 20)
     .style('fill', 'green')
     .on('click', function (d) {
+      setVisibility(true)
       var nodeSelection = d3.select(this).style('fill', 'blue');
       d3.select("body")
         .append("h2")
@@ -140,7 +145,14 @@ const VivaGraph = () => {
   return (
     <div id="chart1">
 
-
+      <CustomPopup
+        onClose={popupCloseHandler}
+        show={visibility}
+        title={information.name}
+      >
+        <h1>Hello This is Popup Content Area</h1>
+        <h2>This is my lorem ipsum text here!</h2>
+      </CustomPopup>
     </div>
   );
 }
