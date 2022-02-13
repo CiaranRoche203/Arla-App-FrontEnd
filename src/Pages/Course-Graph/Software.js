@@ -10,6 +10,7 @@ import 'bootstrap';
 
 const VivaGraph = () => {
   const [information, getInformation] = useState([]);
+  //var popupName = useState();
   const [visibility, setVisibility] = useState(false);
   var name = []
 
@@ -17,10 +18,13 @@ const VivaGraph = () => {
 
   var size = []
   var links = [];
+  //let popupName = "Empty";
+  
 
   useEffect(() => {
     getAllInformation();
   }, []);
+
   const popupCloseHandler = () => {
     setVisibility(false);
   };
@@ -107,7 +111,8 @@ const VivaGraph = () => {
         .style("visibility", "visible")
         .style("background", "grey")
         .text("Details: " + d.name);
-      console.log(d.name);
+        //popupName = d.name;
+        //console.log(popupName);
 
     })
     .on("mouseout", function () {
@@ -122,6 +127,8 @@ const VivaGraph = () => {
     .attr("y", ".31em")
     .style("font-size", "1.5em")
     .text(function (d) { return d.name; });
+
+  
 
 
   // Use elliptical arc path segments to doubly-encode directionality.
@@ -149,6 +156,7 @@ const VivaGraph = () => {
         onClose={popupCloseHandler}
         show={visibility}
         title={information.name}
+        {...console.log("name in the popup: ")}
       >
         <h1>Hello This is Popup Content Area</h1>
         <h2>This is my lorem ipsum text here!</h2>
