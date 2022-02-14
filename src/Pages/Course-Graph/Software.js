@@ -15,6 +15,8 @@ const VivaGraph = () => {
   var name = []
 
   var [array, getArray] = useState([]);
+  var [nameArray, getNameArray] = useState([]);
+
 
   var size = []
   var links = [];
@@ -101,6 +103,7 @@ const VivaGraph = () => {
     .attr("r", 20)
     .style('fill', 'green')
     .on('click', function (d) {
+      nameArray.unshift(d.name)
       setVisibility(true)
       var nodeSelection = d3.select(this).style('fill', 'blue');
       d3.select("body")
@@ -113,6 +116,7 @@ const VivaGraph = () => {
         .text("Details: " + d.name);
         //popupName = d.name;
         //console.log(popupName);
+        console.log("Name array"+nameArray);
 
     })
     .on("mouseout", function () {
@@ -155,7 +159,7 @@ const VivaGraph = () => {
       <CustomPopup
         onClose={popupCloseHandler}
         show={visibility}
-        title={information.name}
+        title={nameArray[0]}
         {...console.log("name in the popup: ")}
       >
         <h1>Hello This is Popup Content Area</h1>
