@@ -20,7 +20,7 @@ function Home() {
     //getProfilePic();
   }, []);
 
-
+// change to unique token
   const getAllInformation = () => {
     axios.get(`http://localhost:3001/people/all/Ciaran`)
       .then((response) => {

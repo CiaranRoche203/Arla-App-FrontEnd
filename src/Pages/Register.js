@@ -36,15 +36,18 @@ function Register() {
         setFields(values);
     }
 
+    //get function to say which profile its being added to
+
 
     //function to set the country
     const changeHandler = value => {
         setValue(value)
     }
 
+    // need to make this unique
     //post the details to the backend
     const addDetails = () => {
-        axios.post('http://localhost:3001/people', {
+        axios.put('http://localhost:3001/people/117418465623660616637', {
             name: nameReg, bio: infoReg
 
         })

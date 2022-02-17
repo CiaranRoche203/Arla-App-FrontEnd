@@ -21,7 +21,7 @@ function Login() {
         console.log('Login Success')
         console.log(googleresponse)
         Auth.authenticate();
-        axios.post('http://localhost:3001/register', googleresponse)
+        axios.post('http://localhost:3001/people', googleresponse)
        
 
             .then((result) => {

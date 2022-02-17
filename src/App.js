@@ -24,7 +24,7 @@ function App() {
         <Route path="/register" component={Register} exact />
         <Route path="/" component={Home} exact />
         <Route path="/messenger" component={Messenger} exact />
-       
+       <Route path='/login' component={Login} exact />
         <Route path="/graph" component={SelectCourse} exact />
         <Route path="/software" component={VivaGraph} exact />
         <Route path="/business" component={Business} exact />
