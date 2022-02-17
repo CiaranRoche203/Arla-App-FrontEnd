@@ -21,14 +21,14 @@ function App() {
         <Navbar />
 
         <Switch>
-        <Route path="/register" component={Register} exact />
-        <Route path="/" component={Home} exact />
-        <Route path="/messenger" component={Messenger} exact />
+        <ProtectedRoute path="/register" component={Register} exact />
+        <ProtectedRoute path="/" component={Home} exact />
+        <ProtectedRoute path="/messenger" component={Messenger} exact />
        <Route path='/login' component={Login} exact />
         <Route path="/graph" component={SelectCourse} exact />
         <Route path="/software" component={VivaGraph} exact />
         <Route path="/business" component={Business} exact />
-        <Route path="/edit" component={EditProfile} exact />
+        <ProtectedRoute path="/edit" component={EditProfile} exact />
        
         </Switch>
       </Router>

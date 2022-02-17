@@ -25,6 +25,8 @@ function Register() {
 
     const [fields, setFields] = useState([{ value: null }]);
 
+    let userLogged = sessionStorage.getItem("userData")
+
     function handleChange(i, event) {
         const values = [...fields];
         values[i].value = event.target.value;
@@ -47,8 +49,8 @@ function Register() {
     // need to make this unique
     //post the details to the backend
     const addDetails = () => {
-        axios.put('http://localhost:3001/people/117418465623660616637', {
-            name: nameReg, bio: infoReg
+        axios.put(`http://localhost:3001/people/:${userLogged}`, {
+            token: userLogged, name: nameReg, bio: infoReg
 
         })
             .then((response) => {
@@ -99,8 +101,8 @@ function Register() {
     //create relationships in neo4j
     //need to fix interest post first
     const addRelationships1 = () => {
-        axios.post(`http://localhost:3001/people/interest/:${nameReg}`, {
-            name: nameReg, interest: fields
+        axios.post(`http://localhost:3001/people/interest/:${userLogged}`, {
+            name: userLogged, interest: fields
 
 
         })
@@ -111,8 +113,8 @@ function Register() {
     }
     const addRelationships2 = () => {
         console.log(courseReg)
-        axios.post(`http://localhost:3001/people/course/:${nameReg}`, {
-            name: nameReg, course: courseReg
+        axios.post(`http://localhost:3001/people/course/:${userLogged}`, {
+            name: userLogged, course: courseReg
         })
             .then((response) => {
                 console.log(response)
@@ -120,8 +122,8 @@ function Register() {
 
     }
     const addRelationships3 = () => {
-        axios.post(`http://localhost:3001/people/country/:${nameReg}`, {
-            name: nameReg, country: value.label
+        axios.post(`http://localhost:3001/people/country/:${userLogged}`, {
+            name: userLogged, country: value.label
 
 
         })

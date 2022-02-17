@@ -32,8 +32,9 @@ const VivaGraph = () => {
   };
 
   const getAllInformation = () => {
-    axios.get(`http://localhost:3001/course/all/Bachelor of Science (Honours) in Computing in Software Development`)
+    axios.get(`http://localhost:3001/course/all/Software`)
       .then((response) => {
+        console.log(response)
         //console.log(response.data.person.length);
         size = response.data.person.length;
         //size.push(response.data.person.length)

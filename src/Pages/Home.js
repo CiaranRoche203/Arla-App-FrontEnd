@@ -14,6 +14,9 @@ function Home() {
   var country = []
   var course_year = []
   var interest = []
+  var people_name = []
+
+  let userLogged = sessionStorage.getItem("userData")
 
   useEffect(() => {
     getAllInformation();
@@ -22,16 +25,21 @@ function Home() {
 
 // change to unique token
   const getAllInformation = () => {
-    axios.get(`http://localhost:3001/people/all/Ciaran`)
+    axios.get(`http://localhost:3001/people/all/${userLogged}`)
       .then((response) => {
-        console.log(response);
+        console.log("here is the info", response);
         const myInfo = response.data;
+        console.log(myInfo.people)
+        people_name = myInfo.people
         course = myInfo.course
         country = myInfo.country
         course_year = myInfo.course_Year
         interest = myInfo.interest
-        console.log(course, country, course_year, interest)
+        console.log(course, country, course_year, interest, people_name)
         getInformation(myInfo);
+        //console.log("showing who is logged in: ", sessionStorage.getItem("userData"))
+        
+        console.log("User logged in as: ", userLogged)
       })
   }
 
@@ -41,7 +49,9 @@ function Home() {
 
   }
 
-
+  const showInfor = () =>{
+    
+  }
 
   /*const getProfilePic = () => {
     axios.get('http://localhost:3001/people')
@@ -82,10 +92,10 @@ function Home() {
       <Container className="">
         <Row className="justify-center">
           <Col>
-            <h2 className="mt-3 text-center">Welcome Profile Here</h2>
+            <h2 className="mt-3 text-center">Welcome Profile of:</h2>
 
             <div className="text-center">
-              <h2> Name</h2>
+              <h2> {information.people}</h2>
             </div>
           </Col>
           <Col>
@@ -93,7 +103,7 @@ function Home() {
               <Card.Img style={{ maxHeight: "7rem", objectFit: "cover" }} src=""></Card.Img>
 
               <Card.Body>
-                <Card.Title>Name (Waiting for users backend)</Card.Title>
+                <Card.Title value ={information.people_name}>Name: <br></br> {information.people}</Card.Title>
                 <br></br>
                 <br></br>
                 <Card.Subtitle value={information.course}
@@ -106,12 +116,7 @@ function Home() {
                 <Card.Subtitle value={information.country}
                   style={{ height: 60, fontSize: 24 }}>Where you are now: {information.country}</Card.Subtitle>
 
-                <Card.Text className="mt-3" //value={information.bio}
-                  style={{ height: 60, fontSize: 24 }}>Bio (users)</Card.Text>
               </Card.Body>
-
-              <Card.Footer className="text-left text-muted" //value={information.course_Year}
-                style={{ height: 60, fontSize: 24 }}>Year (fix)</Card.Footer>
               <Button
                 onClick={editProfile}
               >

@@ -26,8 +26,8 @@ function Login() {
 
             .then((result) => {
                 let responseJson = result;
-
-                sessionStorage.setItem("userData", JSON.stringify(result));
+                console.log(googleresponse.token)
+                sessionStorage.setItem("userData", googleresponse.token);
 
             });
     };
