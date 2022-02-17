@@ -158,6 +158,8 @@ function Register() {
 
                                     Add name to your profile
                                 </Button>
+
+                                
                             </Form>
                         </Card>
                     </Carousel.Item>
@@ -196,6 +198,13 @@ function Register() {
                                     Add course to your profile
                                 </Button>
                             </Form>
+                            <Button class="btn-success btn-lg"
+                                    //method in here 
+                                    onClick={addRelationships1}
+                                >
+
+                                   Click Me before moving on!
+                                </Button>
                         </Card>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -218,6 +227,13 @@ function Register() {
                                 </Button>
 
                             </Form>
+                            <Button class="btn-success btn-lg"
+                                    //method in here 
+                                    onClick={addRelationships2}
+                                >
+
+                                   Click Me before moving on!
+                                </Button>
                         </Card >
 
                     </Carousel.Item>
@@ -257,6 +273,13 @@ function Register() {
                                 </Button>
 
                             </Form>
+                            <Button class="btn-success btn-lg"
+                                    //method in here 
+                                    onClick={addRelationships3}
+                                >
+
+                                   Click Me before moving on!
+                                </Button>
                         </Card>
                     </Carousel.Item>
 
