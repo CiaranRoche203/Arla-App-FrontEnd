@@ -8,34 +8,38 @@ import Navbar from './Navbar';
 import { GoogleLogin } from 'react-google-login';
 import Auth from './Auth';
 
+//Login function
 function Login() {
+    //on a successful login set the name, email, token and image
     const onSuccess = (res) => {
         const googleresponse = {
             Name: res.profileObj.name,
             email: res.profileObj.email,
             token: res.googleId,
             Image: res.profileObj.imageUrl,
-
-
         };
+
         console.log('Login Success')
         console.log(googleresponse)
-        Auth.authenticate();
-        axios.post('http://localhost:3001/people', googleresponse)
-       
 
+        // call the authenticate function from Auth
+        Auth.authenticate();
+        //post the details to backend server
+        axios.post('http://localhost:3001/people', googleresponse)
             .then((result) => {
                 let responseJson = result;
                 console.log(googleresponse.token)
+                //access the rest of the protected routes by checking the session storage and getting the token
+                // this will return unique data to the user
                 sessionStorage.setItem("userData", googleresponse.token);
 
             });
     };
 
+    //add a response should login fail
     const onFailure = (res) => {
         console.log('Login Failed');
     };
-
 
     return (
         <div id="login-page">
@@ -46,25 +50,21 @@ function Login() {
             </h1>
             <br></br>
             <br></br>
-            <div class="form-style-6">
+            <div class="form-style-6a">
 
-                <Card>
-                    <Form id="loginForm">
-                        <h2>Login or Sign Up</h2>
-                        <Form.Group >
-                            <GoogleLogin
+                <GoogleLogin
+                    theme='dark'
+                    icon={true}
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                    buttonText="Login With Google"
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy={'single_host_origin'}
+                    isSignedIn={true}
 
-                                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                                buttonText="Login With Google"
-                                onSuccess={onSuccess}
-                                onFailure={onFailure}
-                                cookiePolicy={'single_host_origin'}
-                                isSignedIn={true}
+                />
 
-                            />
-                        </Form.Group>
-                    </Form>
-                </Card>
+
             </div>
         </div>
 
