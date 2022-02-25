@@ -8,6 +8,9 @@ import Navbar from './Navbar';
 import { GoogleLogin } from 'react-google-login';
 import Auth from './Auth';
 
+import firebase from "firebase/compat/app"
+
+import { auth } from "./firebase"
 //Login function
 function Login() {
     //on a successful login set the name, email, token and image
@@ -61,7 +64,6 @@ function Login() {
                     onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
-
                 />
 
 

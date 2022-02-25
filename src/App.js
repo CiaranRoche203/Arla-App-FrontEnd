@@ -11,7 +11,8 @@ import Messenger from './Pages/Messenger';
 import VivaGraph from './Pages/Course-Graph/Software';
 import SelectCourse from './Pages/VivaGraph';
 import Business from './Pages/Course-Graph/Business';
-import EditProfile from './Pages/Editprofile';
+import { AuthProvider } from './Pages/AuthContext';
+import MessengerLogin from './Pages/MessengerLogin';
 
 
 function App() {
@@ -21,19 +22,26 @@ function App() {
         <Navbar />
 
         <Switch>
-        <ProtectedRoute path="/register" component={Register} exact />
-        <ProtectedRoute path="/" component={Home} exact />
-        <ProtectedRoute path="/messenger" component={Messenger} exact />
-       <Route path='/login' component={Login} exact />
-        <Route path="/graph" component={SelectCourse} exact />
-        <Route path="/software" component={VivaGraph} exact />
-        <Route path="/business" component={Business} exact />
-        <ProtectedRoute path="/edit" component={EditProfile} exact />
-       
+          <ProtectedRoute path="/register" component={Register} exact />
+          <ProtectedRoute path="/" component={Home} exact />
+
+          <Route path='/login' component={Login} exact />
+          <Route path="/graph" component={SelectCourse} exact />
+          <Route path="/software" component={VivaGraph} exact />
+          <Route path="/business" component={Business} exact />
+          <Route path="/messengerlogin" component={MessengerLogin} exact />
+
+
         </Switch>
+        <AuthProvider>
+        <Switch>
+          <Route path="/messenger" component={Messenger} exact />
+        </Switch>
+        </AuthProvider>
+       
       </Router>
     </div>
-    
+
   );
 }
 

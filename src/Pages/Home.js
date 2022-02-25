@@ -51,7 +51,7 @@ function Home() {
   //edit profile page link
   const editProfile = () => {
     console.log("Editing Profile")
-    window.location.href = '/edit'
+    window.location.href = '/register'
 
   }
 
@@ -99,19 +99,24 @@ function Home() {
       <Navbar />
       <Container className="">
         <Row className="justify-center">
-          <Col>
-            <h2 className="mt-3 text-center">Welcome Profile of:</h2>
+          <Col xs={2}>
+            <h2 className="mt-3 text-center">Welcome:</h2>
 
             <div className="text-center">
               <h2> {information.people}</h2>
             </div>
           </Col>
-          <Col>
-            <Card className="w-75 mx-auto mb-4 text-left">
-              <Card.Img style={{ maxHeight: "7rem", objectFit: "cover" }} src=""></Card.Img>
-
+          <Col xs={10}>
+            <Card className="w-75 mx-auto mb-4 text-center">
               <Card.Body>
-                <Card.Title value={information.people_name}>Name: <br></br> {information.people}</Card.Title>
+                <Card.Title value={information.people_name}>
+                  Name:
+                  <br></br> 
+                </Card.Title>
+
+                <Card.Title value={information.people_name}
+                  style={{ height: 60, fontSize: 24, }}>{information.people}
+                </Card.Title>
                 <br></br>
                 <br></br>
                 <Card.Subtitle value={information.course}
@@ -119,10 +124,10 @@ function Home() {
                 <br></br>
                 <br></br>
                 <Card.Subtitle value={information.interest}
-                  style={{ height: 60, fontSize: 24 }}>Interests: {information.interest}</Card.Subtitle>
+                  style={{ height: 60, fontSize: 24 }}>Interests: <br></br> {information.interest}</Card.Subtitle>
                 <br></br>
                 <Card.Subtitle value={information.country}
-                  style={{ height: 60, fontSize: 24 }}>Where you are now: {information.country}</Card.Subtitle>
+                  style={{ height: 60, fontSize: 24 }}>Where you are now: <br></br>{information.country}</Card.Subtitle>
 
               </Card.Body>
               <Button
