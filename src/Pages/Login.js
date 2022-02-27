@@ -71,7 +71,6 @@ function Login() {
                             buttonText="Login With Google"
                             onSuccess={onSuccess}
                             onFailure={onFailure}
-                            cookiePolicy={'https://arl-application.herokuapp.com/login'}
                             isSignedIn={true}
                         />
                     </Card.Body>
