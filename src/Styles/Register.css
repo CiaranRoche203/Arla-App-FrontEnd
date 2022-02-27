@@ -13,6 +13,7 @@ img {
     bottom: 0px;
     left: 0px;
     right: 0px;
+    font: 95% Arial, Helvetica, sans-serif;
   }
   #login-page2 {
     position: relative;
@@ -39,7 +40,13 @@ img {
     left: 0px;
     right: 0px;
   }
-
+  .chats-page {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 1000vh;
+  }
   #login-card {
     position: sticky;
     top: calc(50vh - 144px);
@@ -79,11 +86,11 @@ img {
   .form-style-6a{
     position: relative;
       font: 100% Arial, Helvetica, sans-serif;
-      max-width: 250px;
+      max-width: 240px;
       margin: 0px auto;
       padding: 0px;
       background: #F7F7F7;
-    height: 100px;
+    height: 50px;
   }
 
   .form-style-6a Form{
@@ -201,6 +208,34 @@ text {
   
 }
 
+#login-card {
+  position: relative;
+  top: calc(50vh - 144px);
+  left: calc(50vw - 210px);
+  padding-top: 36px;
+  padding-bottom: 66px;
+  width: 420px;
+  text-align: center;
+  background-color: rgb(195, 222, 255);
+  border-radius: 22px;
+}
+
+.login-button {
+  cursor: pointer;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.facebook {
+  background-color: #3b5998;
+}
+
+.google {
+  background-color: #4285f4;
+  color: white;
+}
 /* Create two equal columns that sits next to each other */
 .column {
   flex: 50%;

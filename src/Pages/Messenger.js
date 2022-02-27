@@ -73,11 +73,11 @@ export default function Messenger() {
     if (!user || loading) return <div />
 
     return (
-        <div id="login-page">
-            <Navbar />
+        <div style={{ fontFamily: 'fantasy' }}>
+            
 
             <ChatEngine
-                height="calc(100vh -66px)"
+                height="100vh"
                 projectID="f3b1760a-c847-4c1f-8021-1c48bc5c23a4"
                 userName={user.email}
                 userSecret={user.uid}

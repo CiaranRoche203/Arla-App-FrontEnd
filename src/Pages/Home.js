@@ -6,6 +6,7 @@ import { Form, Card, Button, Row, Col, Alert, Container } from "react-bootstrap"
 import Navbar from './Navbar';
 import React from 'react';
 import 'bootstrap';
+
 function Home() {
   // use state
   const [information, getInformation] = useState([]);
@@ -96,7 +97,7 @@ function Home() {
   return (
 
     <div id="login-page">
-      <Navbar />
+    <Navbar />
       <Container className="">
         <Row className="justify-center">
           <Col xs={2}>
@@ -130,11 +131,7 @@ function Home() {
                   style={{ height: 60, fontSize: 24 }}>Where you are now: <br></br>{information.country}</Card.Subtitle>
 
               </Card.Body>
-              <Button
-                onClick={editProfile}
-              >
-                Edit Profile
-              </Button>
+            
             </Card>
 
 

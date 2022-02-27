@@ -7,7 +7,7 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import { GoogleLogin } from 'react-google-login';
 import Auth from './Auth';
-
+import GoogleButton from 'react-google-button'
 import firebase from "firebase/compat/app"
 
 import { auth } from "./firebase"
@@ -46,7 +46,7 @@ function Login() {
 
     return (
         <div id="login-page">
-            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+
             <Navbar />
             <h1>
                 <img src={gmitlogo}></img>
@@ -55,16 +55,27 @@ function Login() {
             <br></br>
             <div class="form-style-6a">
 
-                <GoogleLogin
-                    theme='dark'
-                    icon={true}
-                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                    buttonText="Login With Google"
-                    onSuccess={onSuccess}
-                    onFailure={onFailure}
-                    cookiePolicy={'single_host_origin'}
-                    isSignedIn={true}
-                />
+                <Card className="w-200 mx-auto mb-8 text-center bg-dark text-white">
+                    <Card.Body>
+                        <Card.Title>
+                            Welcome to the ARLA
+                            <br></br>
+                            <br>
+                            </br>
+                        </Card.Title>
+                        <GoogleLogin
+                            theme='dark'
+                            icon={true}
+                            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+
+                            buttonText="Login With Google"
+                            onSuccess={onSuccess}
+                            onFailure={onFailure}
+                            cookiePolicy={'single_host_origin'}
+                            isSignedIn={true}
+                        />
+                    </Card.Body>
+                </Card>
 
 
             </div>

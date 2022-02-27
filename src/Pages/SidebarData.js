@@ -29,9 +29,9 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Graph',
+    title: 'My networks',
     path: '/graph',
-    icon: <IoIcons.IoIosAddCircle />,
+    icon: <IoIcons.IoMdGitNetwork />,
     cName: 'nav-text'
   },
 

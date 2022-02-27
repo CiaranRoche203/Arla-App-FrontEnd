@@ -21,7 +21,10 @@ const VivaGraph = () => {
   var size = []
   var links = [];
   //let popupName = "Empty";
-  
+  const redirect = () => {
+    window.location.href = '/messenger'
+
+  }
 
   useEffect(() => {
     getAllInformation();
@@ -163,8 +166,9 @@ const VivaGraph = () => {
         title={nameArray[0]}
         {...console.log("name in the popup: ")}
       >
-        <h1>Hello This is Popup Content Area</h1>
-        <h2>This is my lorem ipsum text here!</h2>
+        <Button onClick={redirect}>
+          Contact {nameArray[0]} on ARLA's Messenge
+        </Button>
       </CustomPopup>
     </div>
   );

@@ -5,7 +5,7 @@ import React from 'react';
 import './../Styles/Register.css';
 import Select from 'react-select'
 
-
+import Navbar from './Navbar';
 const SelectCourse = () => {
   const [value, setValue] = useState('')
 
@@ -34,7 +34,8 @@ const SelectCourse = () => {
 
 
   return (
-    <div id="chart1">
+    <div id="login-page">
+      <Navbar />
       <Select options={options} value={value} onChange={changeHandler} />
     </div>
   );
