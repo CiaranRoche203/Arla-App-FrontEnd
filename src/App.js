@@ -23,9 +23,9 @@ function App() {
 
         <Switch>
           <ProtectedRoute path="/register" component={Register} exact />
-          <ProtectedRoute path="/" component={Home} exact />
+          <ProtectedRoute path="/home" component={Home} exact />
 
-          <Route path='/login' component={Login} exact />
+          <Route path='/' component={Login} exact />
           <Route path="/graph" component={SelectCourse} exact />
           <Route path="/software" component={VivaGraph} exact />
           <Route path="/business" component={Business} exact />
