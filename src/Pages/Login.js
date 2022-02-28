@@ -71,6 +71,7 @@ function Login() {
                             buttonText="Login With Google"
                             onSuccess={onSuccess}
                             onFailure={onFailure}
+                            cookiePolicy={'single_host_origin'}
                             isSignedIn={true}
                         />
                     </Card.Body>
