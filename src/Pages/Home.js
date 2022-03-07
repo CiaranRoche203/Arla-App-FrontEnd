@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaUserSecret } from 'react-icons/fa';
+
 import './../Styles/Register.css';
 import { Form, Card, Button, Row, Col, Alert, Container } from "react-bootstrap";
 import Navbar from './Navbar';
 import React from 'react';
 import 'bootstrap';
+import gmitlogo from './../Images/gmitlogo.png'
 
 function Home() {
   // use state
@@ -21,6 +23,7 @@ function Home() {
 
   // get the user who is logged in from the session
   let userLogged = sessionStorage.getItem("userData")
+  let userImage = sessionStorage.getItem("userPic")
 
   // use effect to get the information
   useEffect(() => {
@@ -70,45 +73,43 @@ function Home() {
       })
   }*/
 
-  /*const displayProfilePic = () => {
-    return profile ? (
-      profile.map((profile) => {
-        return (
-          <div id="header" >
-            <h2>
-              Welcome:
-              <br></br>
-              {profile.Name}
-            </h2>
-              <img class="image-test" src={profile.Token} alt="cannot display">
+  // for purposes of display and design i have stored the users google profile pic in session storage
+  // and display it as an image
+  const displayProfilePic = () => {
+    return (
+      <div id="header" >
+        <img class="image" src={userImage} alt="cannot display">
 
-              </img>
-  
+        </img>
 
-          </div>
-        );
-      })
-    ) : (
-      <h3>No data yet</h3>
+
+      </div>
     );
-  }*/
+  }
 
   //in return display the data on a card and display the unique information that is set to the user in the backend
   return (
 
     <div id="login-page">
-    <Navbar />
-      <Container className="">
+      <Navbar />
+      {/*<Container className="">
         <Row className="justify-center">
           <Col xs={2}>
-            <h2 className="mt-3 text-center">Welcome:</h2>
+            <h2 className="welcome">Welcome:</h2>
 
-            <div className="text-center">
-              <h2> {information.people}</h2>
+           
+            
+            <div>
+            {displayProfilePic()}
             </div>
           </Col>
-          <Col xs={10}>
-            <Card className="w-75 mx-auto mb-4 text-center">
+          <Col xs={2}>
+          <div className="mt-3 text-center">
+              <h2> {information.people}</h2>
+            </div>
+              </Col>
+          <Col xs={8}>
+            <Card className="w-50 mx-auto mb-4 text-center">
               <Card.Body>
                 <Card.Title value={information.people_name}>
                   Name:
@@ -141,7 +142,56 @@ function Home() {
         </Row>
       </Container>
 
+  */}
+      <div class="container">
+        <h1>Hover here!</h1>
 
+        <div class="card">
+
+          <div class="front">
+
+            <img src={gmitlogo}></img>
+            <div class="logo"><span></span></div>
+
+          </div>
+          <div class="back">
+            {displayProfilePic()}
+            <h1>{information.people}
+              <span>{information.course}</span>
+            </h1>
+            <br>
+            </br>
+            <h3>
+              Where you are
+            </h3>
+            <h2>
+              {information.country}
+            </h2>
+            <br>
+            </br>
+            <br>
+            </br>
+            <h3>
+              Interests
+            </h3>
+            <h2>
+              {information.interest}
+            </h2>
+            <br>
+            </br>
+            <br>
+            </br>
+            <h3>
+              Biography
+            </h3>
+            <h2>
+              {information.bio}
+            </h2>
+
+
+          </div>
+        </div>
+      </div>
 
     </div>
   );

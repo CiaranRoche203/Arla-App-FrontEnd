@@ -35,6 +35,7 @@ function Login() {
                 //access the rest of the protected routes by checking the session storage and getting the token
                 // this will return unique data to the user
                 sessionStorage.setItem("userData", googleresponse.token);
+                sessionStorage.setItem("userPic", googleresponse.Image);
 
             });
     };
