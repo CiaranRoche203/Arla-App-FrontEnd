@@ -117,7 +117,6 @@ const VivaGraph = () => {
         .style("z-index", "10")
         .style("visibility", "visible")
         .style("background", "grey")
-        .text("Details: " + d.name);
         //popupName = d.name;
         //console.log(popupName);
         console.log("Name array"+nameArray);
@@ -158,7 +157,7 @@ const VivaGraph = () => {
 
 
   return (
-    <div id="chart1">
+    <div>
 
       <CustomPopup
         onClose={popupCloseHandler}

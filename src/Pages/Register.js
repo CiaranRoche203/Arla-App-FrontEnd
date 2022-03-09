@@ -23,10 +23,13 @@ function Register() {
     const [value, setValue] = useState('')
     const options = useMemo(() => countryList().getData(), [])
 
+    // interests
     const [fields, setFields] = useState([{ value: null }]);
 
+    //finding the details of the logged in user
     let userLogged = sessionStorage.getItem("userData")
 
+    // handle the selections of interests and country
     function handleChange(i, event) {
         const values = [...fields];
         values[i].value = event.target.value;
@@ -38,16 +41,12 @@ function Register() {
         setFields(values);
     }
 
-    //get function to say which profile its being added to
-
-
     //function to set the country
     const changeHandler = value => {
         setValue(value)
     }
 
-    // need to make this unique
-    //post the details to the backend
+    //post the details to the backend of the user that is logged in
     const addDetails = () => {
         axios.put(`http://localhost:3001/people/:${userLogged}`, {
             token: userLogged, name: nameReg, bio: infoReg
@@ -86,6 +85,7 @@ function Register() {
             });
 
     }
+    //post country to the backend
     const addCountry = () => {
         console.log(value)
         axios.post(`http://localhost:3001/country`, {
@@ -100,7 +100,7 @@ function Register() {
 
     //create relationships in neo4j
     //need to fix interest post first
-    const addRelationships1 = () => {
+    const addInterestRelationships = () => {
         axios.post(`http://localhost:3001/people/interest/:${userLogged}`, {
             name: userLogged, interest: fields
 
@@ -111,7 +111,9 @@ function Register() {
             });
 
     }
-    const addRelationships2 = () => {
+    //creating relationship between course and person
+    //post to backend to handle it
+    const addCourseRelationship = () => {
         console.log(courseReg)
         axios.post(`http://localhost:3001/people/course/:${userLogged}`, {
             name: userLogged, course: courseReg
@@ -121,7 +123,8 @@ function Register() {
             });
 
     }
-    const addRelationships3 = () => {
+    ////creating relationship between country and person
+    const addCountryRelationship = () => {
         axios.post(`http://localhost:3001/people/country/:${userLogged}`, {
             name: userLogged, country: value.label
 
@@ -133,8 +136,6 @@ function Register() {
 
     }
 
-
-
     //display
     return (
         <div id="login-page">
@@ -142,21 +143,28 @@ function Register() {
             <div className="center">
                 <Carousel interval={null}>
                     <Carousel.Item>
-                        <Card className="w-25 mx-auto mb-4 text-center" >
+                        <Card className="w-25 mx-auto mb-4 text-center cardy" >
                             <Form>
                                 <Form.Group>
                                     <h1>Name</h1>
-                                    <Form.Control class="form-control form-control-lg"
+                                    <br></br>
+                                    <Form.Control className="form-control form-control-lg w-50 mx-auto mb-4 text-center"
                                         onChange={(e) => {
                                             setNameReg(e.target.value)
                                         }}
                                         type="name" name="name" id="name" placeholder="Enter Name..." >
 
                                     </Form.Control>
+                                  
+                                    <h1>Biography</h1>
                                     <br>
                                     </br>
+                                    <Form.Control className="form-control form-control-lg w-75 mx-auto mb-4 text-center"
+                                        onChange={(e) => {
+                                            setInfoReg(e.target.value)
+                                        }} as="textarea" rows={3} />
                                 </Form.Group>
-                                <Button class="btn-success btn-lg"
+                                <Button className="btn btn-success btn-lg"
                                     //method in here 
                                     onClick={addDetails}
                                 >
@@ -164,19 +172,19 @@ function Register() {
                                     Add name to your profile
                                 </Button>
 
-                                
+
                             </Form>
                         </Card>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <Card className="w-25 mx-auto mb-4 text-center">
+                        <Card className="w-25 mx-auto mb-4 text-center cardy" >
 
                             <Form >
 
                                 <Form.Group>
                                     <h1>Course</h1>
 
-                                    <Form.Control class="form-control form-control-lg"
+                                    <Form.Control className="form-control form-control-lg w-50 mx-auto mb-4 text-center"
                                         onChange={(e) => {
                                             setCourseReg(e.target.value)
                                         }}
@@ -185,7 +193,7 @@ function Register() {
                                     </Form.Control>
                                     <h1>Graduate Year</h1>
 
-                                    <Form.Control class="form-control form-control-lg"
+                                    <Form.Control className="form-control form-control-lg w-50 mx-auto mb-4 text-center"
                                         onChange={(e) => {
                                             setYearReg(e.target.value)
                                         }}
@@ -195,70 +203,76 @@ function Register() {
                                 </Form.Group>
                                 <br>
                                 </br>
-                                <Button class="btn-success btn-lg"
+                                <Button className="btn btn-success btn-lg"
                                     //method in here 
                                     onClick={addCourse}
                                 >
 
                                     Add course to your profile
                                 </Button>
-                            </Form>
-                            <Button class="btn-success btn-lg"
+                                <br></br>
+                                <br></br>
+
+                                <Button className="btn btn-dark btn-lg"
                                     //method in here 
-                                    onClick={addRelationships1}
+                                    onClick={addCourseRelationship}
                                 >
 
-                                   Click Me before moving on!
+                                    Create Link to Course
                                 </Button>
+                            </Form>
+
                         </Card>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <Card className="w-25 mx-auto mb-4 text-center">
+                        <Card className="w-25 mx-auto mb-4 text-center cardy" >
                             <Form>
-                                <Form.Group>
+                                <Form.Group >
                                     <h1>Where are you now?</h1>
                                     <br>
                                     </br>
-                                    <Select options={options} value={value} onChange={changeHandler} />
+                                    <Select className="form-control form-control-lg w-75 mx-auto mb-4 text-center" options={options} value={value} onChange={changeHandler} />
                                 </Form.Group>
                                 <br>
                                 </br>
-                                <Button class="btn-success btn-lg"
+                                <Button className="btn btn-success btn-lg"
                                     //method in here 
                                     onClick={addCountry}
                                 >
 
                                     Add country to your profile
                                 </Button>
-
-                            </Form>
-                            <Button class="btn-success btn-lg"
+                                <br></br>
+                                <br></br>
+                                <Button className="btn btn-dark btn-lg"
                                     //method in here 
-                                    onClick={addRelationships2}
+                                    onClick={addCountryRelationship}
                                 >
 
-                                   Click Me before moving on!
+                                    Create a Link to Country
                                 </Button>
-                        </Card >
+                            </Form>
 
+                        </Card >
                     </Carousel.Item>
 
                     <Carousel.Item>
-
-                        <Card className="w-25 mx-auto mb-4 text-center">
+                        <Card className="w-25 mx-auto mb-4 text-center cardy" >
 
                             <Form>
 
                                 <Form.Group>
                                     <h1>Interests and Hobbies</h1>
-                                    <Button class="btn-dark btn-lg" onClick={() => handleAdd()}>Add Another Interest
+                                    <br></br>
+                                    <br></br>
+                                    <Button className="btn btn-light btn-lg" onClick={() => handleAdd()}>Add Another Interest
 
                                     </Button>
                                     {fields.map((field, idx) => {
                                         return (
                                             <div key={`${field}-${idx}`}>
                                                 <br></br>
-                                                <Form.Control class="form-control form-control-lg"
+                                                <Form.Control className="form-control form-control-lg w-75 mx-auto mb-4 text-center"
                                                     type="text"
                                                     placeholder="Enter Interests"
                                                     value={field.value || ""}
@@ -269,52 +283,32 @@ function Register() {
                                 </Form.Group>
                                 <br>
                                 </br>
-                                <Button class="btn-success btn-lg"
+                                <br>
+                                </br>
+                                <Button className="btn btn-success btn-lg"
                                     //method in here 
                                     onClick={addInterest}
                                 >
 
-                                    Add interest(s) to profile
+                                    Add Interest(s) to Profile
                                 </Button>
-
-                            </Form>
-                            <Button class="btn-success btn-lg"
-                                    //method in here 
-                                    onClick={addRelationships3}
-                                >
-
-                                   Click Me before moving on!
-                                </Button>
-                        </Card>
-                    </Carousel.Item>
-
-                    <Carousel.Item>
-                        <Card className="w-25 mx-auto mb-4 text-center">
-
-                            <Form>
-                                <Form.Group>
-                                    <h1>Some more info about you!</h1>
-                                    <br>
-                                    </br>
-                                    <Form.Control
-                                        onChange={(e) => {
-                                            setInfoReg(e.target.value)
-                                        }} as="textarea" rows={3} />
-                                </Form.Group>
-
-                            </Form>
-                            <Button class="btn-success btn-lg"
+                                <br></br>
+                                <br></br>
+                                <Button className="btn btn-dark btn-lg"
                                 //method in here 
-                                onClick={addRelationships2}
-                               //href="/"
+                                onClick={addInterestRelationships}
+                            //href="/"
                             >
 
-                                Create Profile
+                                Create a link To Interest(s)
                             </Button>
 
-                        </Card>
+                            </Form>
 
+                        </Card>
                     </Carousel.Item>
+
+                   
                 </Carousel>
 
 

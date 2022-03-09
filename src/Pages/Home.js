@@ -78,7 +78,7 @@ function Home() {
   const displayProfilePic = () => {
     return (
       <div id="header" >
-        <img class="image" src={userImage} alt="cannot display">
+        <img class="image-test" src={userImage} alt="cannot display">
 
         </img>
 
@@ -92,61 +92,10 @@ function Home() {
 
     <div id="login-page">
       <Navbar />
-      {/*<Container className="">
-        <Row className="justify-center">
-          <Col xs={2}>
-            <h2 className="welcome">Welcome:</h2>
-
-           
-            
-            <div>
-            {displayProfilePic()}
-            </div>
-          </Col>
-          <Col xs={2}>
-          <div className="mt-3 text-center">
-              <h2> {information.people}</h2>
-            </div>
-              </Col>
-          <Col xs={8}>
-            <Card className="w-50 mx-auto mb-4 text-center">
-              <Card.Body>
-                <Card.Title value={information.people_name}>
-                  Name:
-                  <br></br> 
-                </Card.Title>
-
-                <Card.Title value={information.people_name}
-                  style={{ height: 60, fontSize: 24, }}>{information.people}
-                </Card.Title>
-                <br></br>
-                <br></br>
-                <Card.Subtitle value={information.course}
-                  style={{ height: 60, fontSize: 24 }}>Course: <br></br> {information.course}</Card.Subtitle>
-                <br></br>
-                <br></br>
-                <Card.Subtitle value={information.interest}
-                  style={{ height: 60, fontSize: 24 }}>Interests: <br></br> {information.interest}</Card.Subtitle>
-                <br></br>
-                <Card.Subtitle value={information.country}
-                  style={{ height: 60, fontSize: 24 }}>Where you are now: <br></br>{information.country}</Card.Subtitle>
-
-              </Card.Body>
-            
-            </Card>
-
-
-          </Col>
-
-
-        </Row>
-      </Container>
-
-  */}
       <div class="container">
         <h1>Hover here!</h1>
 
-        <div class="card">
+        <div class="cardy">
 
           <div class="front">
 
