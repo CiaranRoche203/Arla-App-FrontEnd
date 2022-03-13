@@ -6,6 +6,7 @@ import './../Styles/Register.css';
 import Select from 'react-select'
 
 import Navbar from './Navbar';
+// function used to select a course and to redirect to the courses page
 const SelectCourse = () => {
   const [value, setValue] = useState('')
 
@@ -28,11 +29,7 @@ const SelectCourse = () => {
       window.location.href = '/business'
       //window.open('/register', '_blank').focus();
     }
-
 }
-
-
-
   return (
     <div id="login-page">
       <Navbar />
