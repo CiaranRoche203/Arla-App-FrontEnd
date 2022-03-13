@@ -5,10 +5,21 @@ img {
     max-height: 50%;
     max-width: 50%;
 }
+.img2 {
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  max-height: 50%;
+  max-width: 50%;
+  opacity: 0.5;
+}
 
 @import '~bootstrap/dist/css/bootstrap.css';
 #login-page {
-    background-image: linear-gradient(#7eb8f5, #e1a5f2);
+  display: block;
+    
+  background-color: #00b18b;
+  clip-path: ellipse(96% 100% at 47.7% 0%);
     position: fixed;
     top: 0px;
     bottom: 0px;
@@ -24,6 +35,18 @@ img {
     right: 0px;
     column-count: 3;
     
+  }
+  #home-page {
+    display: block;
+    
+    background-color: #00b18b;
+    clip-path: ellipse(96% 100% at 47.7% 0%);
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    font: 95% Arial, Helvetica, sans-serif;
   }
   .center {
     margin: 0;

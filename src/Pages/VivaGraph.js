@@ -29,6 +29,11 @@ const SelectCourse = () => {
       window.location.href = '/business'
       //window.open('/register', '_blank').focus();
     }
+    if (value.label == "Digital Media"){
+      console.log("Chosen Digital Media")
+      window.location.href = '/digitalmedia'
+      //window.open('/register', '_blank').focus();
+    }
 }
   return (
     <div id="login-page">

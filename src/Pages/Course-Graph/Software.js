@@ -9,31 +9,33 @@ import { Form, Card, Button, Row, Col, Alert, Container } from "react-bootstrap"
 import 'bootstrap';
 
 const VivaGraph = () => {
+  //set states and arrays
   const [information, getInformation] = useState([]);
-  //var popupName = useState();
   const [visibility, setVisibility] = useState(false);
   var name = []
 
   var [array, getArray] = useState([]);
   var [nameArray, getNameArray] = useState([]);
 
-
   var size = []
   var links = [];
-  //let popupName = "Empty";
+
+  //redirect function
   const redirect = () => {
     window.location.href = '/messenger'
-
   }
 
+  //useEffect, get the information
   useEffect(() => {
     getAllInformation();
   }, []);
 
+  //set the visibility of popup to false at start
   const popupCloseHandler = () => {
     setVisibility(false);
   };
 
+  //get all the people associated with the course
   const getAllInformation = () => {
     axios.get(`http://localhost:3001/course/all/Software`)
       .then((response) => {
@@ -134,9 +136,6 @@ const VivaGraph = () => {
     .attr("y", ".31em")
     .style("font-size", "1.5em")
     .text(function (d) { return d.name; });
-
-  
-
 
   // Use elliptical arc path segments to doubly-encode directionality.
   function tick() {

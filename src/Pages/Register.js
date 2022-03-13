@@ -138,7 +138,7 @@ function Register() {
 
     //display
     return (
-        <div id="login-page">
+        <div id="home-page">
             <Navbar />
             <div className="center">
                 <Carousel interval={null}>

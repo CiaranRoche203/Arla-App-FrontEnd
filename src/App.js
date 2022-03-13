@@ -13,6 +13,7 @@ import SelectCourse from './Pages/VivaGraph';
 import Business from './Pages/Course-Graph/Business';
 import { AuthProvider } from './Pages/AuthContext';
 import MessengerLogin from './Pages/MessengerLogin';
+import DigitalMedia from './Pages/Course-Graph/DigitalMedia';
 
 
 function App() {
@@ -26,10 +27,11 @@ function App() {
           <ProtectedRoute path="/home" component={Home} exact />
 
           <Route path='/' component={Login} exact />
-          <Route path="/graph" component={SelectCourse} exact />
+          <ProtectedRoute path="/graph" component={SelectCourse} exact />
           <Route path="/software" component={VivaGraph} exact />
           <Route path="/business" component={Business} exact />
-          <Route path="/messengerlogin" component={MessengerLogin} exact />
+          <Route path="/digitalmedia" component={DigitalMedia} exact />
+          <ProtectedRoute path="/messengerlogin" component={MessengerLogin} exact />
 
 
         </Switch>

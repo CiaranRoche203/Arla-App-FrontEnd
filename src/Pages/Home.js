@@ -8,6 +8,7 @@ import Navbar from './Navbar';
 import React from 'react';
 import 'bootstrap';
 import gmitlogo from './../Images/gmitlogo.png'
+import gmit from './../Images/gmit.jpg'
 
 function Home() {
   // use state
@@ -90,7 +91,7 @@ function Home() {
   //in return display the data on a card and display the unique information that is set to the user in the backend
   return (
 
-    <div id="login-page">
+    <div id="login-page" >
       <Navbar />
       <div class="container">
         <h1>Hover here!</h1>
