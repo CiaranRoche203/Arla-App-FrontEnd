@@ -18,7 +18,7 @@ export const SidebarData = [
   },
   {
     title: 'Messenger',
-    path: '/messengerlogin',
+    path: '/messenger',
     icon: <IoIcons.IoMdMail />,
     cName: 'nav-text'
   },

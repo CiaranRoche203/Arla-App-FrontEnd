@@ -26,7 +26,7 @@ export default function Messenger() {
             didMountRef.current = true
 
             if (!user || user === null) {
-                history.push("/")
+                history.push("/messengerlogin")
                 return
             }
 
@@ -64,8 +64,6 @@ export default function Messenger() {
                                 .catch(e => console.log('e', e.response))
                         })
                 })
-            // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
         }
     }, [user, history])
 
@@ -73,9 +71,8 @@ export default function Messenger() {
     if (!user || loading) return <div />
 
     return (
-        <div style={{ fontFamily: 'fantasy' }}>
-            
-
+        <div id="login-page2">
+            <Navbar />
             <ChatEngine
                 height="100vh"
                 projectID="f3b1760a-c847-4c1f-8021-1c48bc5c23a4"
