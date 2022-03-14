@@ -139,11 +139,12 @@ function Register() {
     //display
     return (
         <div id="home-page">
+            
             <Navbar />
             <div className="center">
                 <Carousel interval={null}>
-                    <Carousel.Item>
-                        <Card className="w-25 mx-auto mb-4 text-center cardy" >
+                    <Carousel.Item >
+                        <Card className="w-2 mx-auto mb-4 text-center RegisterCard" >
                             <Form>
                                 <Form.Group>
                                     <h1>Name</h1>
@@ -177,7 +178,7 @@ function Register() {
                         </Card>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <Card className="w-25 mx-auto mb-4 text-center cardy" >
+                    <Card className="w-2 mx-auto mb-4 text-center RegisterCard" >
 
                             <Form >
 
@@ -225,7 +226,7 @@ function Register() {
                         </Card>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <Card className="w-25 mx-auto mb-4 text-center cardy" >
+                    <Card className="w-2 mx-auto mb-4 text-center RegisterCard" >
                             <Form>
                                 <Form.Group >
                                     <h1>Where are you now?</h1>
@@ -257,7 +258,7 @@ function Register() {
                     </Carousel.Item>
 
                     <Carousel.Item>
-                        <Card className="w-25 mx-auto mb-4 text-center cardy" >
+                    <Card className="w-2 mx-auto mb-4 text-center RegisterCard" >
 
                             <Form>
 
