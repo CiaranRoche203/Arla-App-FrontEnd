@@ -332,7 +332,7 @@ body {
   align-items: center;
 }
 .container {
-  width: 600px;
+  width: auto;
   height: 340px;
   margin: 0 auto; 
   position: relative;
@@ -348,6 +348,7 @@ body {
   -moz-perspective-origin: right;
   perspective-origin: right;
 }
+@media only screen and (min-width: 610px){
 .cardy {
   width: 600px;
   height: 500px;
@@ -367,6 +368,7 @@ body {
   transition: .8s ease-in-out;
   background-color: rgb(218, 236, 255);
   border-radius: 25px;
+  margin: auto;
 }
 
 .front, .back {
@@ -401,7 +403,7 @@ body {
   -ms-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
   font-family: 'Arimo', sans-serif;
-  background-image: linear-gradient(#fff7a5, #bd9801);
+  background-image: linear-gradient(#a5f6ff, #835deb);
   border-radius: 25px;
 }
 .container:hover .cardy {
@@ -410,6 +412,7 @@ body {
   -ms-transform: rotateY(180deg) translateX(100%);
   transform: rotateY(180deg) translateX(100%);
   cursor: pointer;
+}
 }
 h1 {
   color: #010000;

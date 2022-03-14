@@ -94,8 +94,6 @@ function Home() {
     <div id="login-page" >
       <Navbar />
       <div class="container">
-        <h1>Hover here!</h1>
-
         <div class="cardy">
 
           <div class="front">
