@@ -21,6 +21,7 @@ function Home() {
   var course_year = []
   var interest = []
   var people_name = []
+  var bio =[]
 
   // get the user who is logged in from the session
   let userLogged = sessionStorage.getItem("userData")
@@ -41,11 +42,12 @@ function Home() {
         const myInfo = response.data;
         console.log(myInfo.people)
         people_name = myInfo.people
+        bio = myInfo.bio
         course = myInfo.course
         country = myInfo.country
         course_year = myInfo.course_Year
         interest = myInfo.interest
-        console.log(course, country, course_year, interest, people_name)
+        console.log(bio + "bio here")
         getInformation(myInfo);
         //console.log("showing who is logged in: ", sessionStorage.getItem("userData"))
 
@@ -94,6 +96,8 @@ function Home() {
     <div id="login-page" >
       <Navbar />
       <div class="container">
+        <br></br>
+        <br></br>
         <div class="cardy">
 
           <div class="front">
