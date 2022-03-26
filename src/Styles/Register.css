@@ -18,7 +18,7 @@ img {
 #login-page {
   display: block;
     
-  background-color: #00b18b;
+  background-color: #87CEEB;
   clip-path: ellipse(96% 100% at 47.7% 0%);
     position: fixed;
     top: 0px;
@@ -40,7 +40,7 @@ img {
   #home-page {
     display: block;
     
-    background-color: #00b18b;
+    background-color: #87CEEB;
     clip-path: ellipse(96% 100% at 47.7% 0%);
     position: fixed;
     top: 0px;
@@ -403,7 +403,7 @@ body {
   -ms-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
   font-family: 'Arimo', sans-serif;
-  background-image: linear-gradient(#a5f6ff, #835deb);
+  background-image: linear-gradient(#a5baff, #835deb);
   border-radius: 25px;
 }
 .container:hover .cardy {

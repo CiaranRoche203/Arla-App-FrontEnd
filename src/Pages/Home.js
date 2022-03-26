@@ -47,7 +47,7 @@ function Home() {
         country = myInfo.country
         course_year = myInfo.course_Year
         interest = myInfo.interest
-        console.log(bio + "bio here")
+        console.log(myInfo.bio + "bio here")
         getInformation(myInfo);
         //console.log("showing who is logged in: ", sessionStorage.getItem("userData"))
 
