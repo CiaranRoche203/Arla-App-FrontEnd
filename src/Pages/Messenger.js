@@ -26,7 +26,7 @@ export default function Messenger() {
             didMountRef.current = true
 
             if (!user || user === null) {
-                history.push("/messengerlogin")
+                history.push("/")
                 return
             }
 

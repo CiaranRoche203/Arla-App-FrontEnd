@@ -44,6 +44,9 @@ function Login() {
     const onFailure = (res) => {
         console.log('Login Failed');
     };
+    const checkLogin = () => {
+        window.location.href = '/messenger'
+    }
 
     return (
         <div id="login-page">
@@ -77,9 +80,28 @@ function Login() {
                         />
                     </Card.Body>
                 </Card>
-
+                
 
             </div>
+            <div id='login-card'>
+
+                    <h2>Welcome to ARLA Messenger!</h2>
+                    <br>
+                    </br>
+                    <div
+                        className='login-button google'
+                        onClick={() =>
+
+                            auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider(),
+                                checkLogin()
+                            )}
+                    >
+                        <GoogleOutlined /> Sign In with Google
+                    </div>
+
+                    <br /><br />
+
+                </div>
         </div>
 
     );
