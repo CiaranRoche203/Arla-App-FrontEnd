@@ -29,8 +29,6 @@ export default function Messenger() {
                 history.push("/")
                 return
             }
-
-            // Get-or-Create should be in a Firebase Function
             axios.get(
                 'https://api.chatengine.io/users/me',
                 {
