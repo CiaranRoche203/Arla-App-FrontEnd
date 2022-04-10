@@ -13,6 +13,19 @@ img {
   max-width: 50%;
   opacity: 0.5;
 }
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
 
 @import '~bootstrap/dist/css/bootstrap.css';
 #login-page {
@@ -82,6 +95,17 @@ img {
     text-align: center;
     background-color: white;
     border-radius: 22px;
+  }
+  #messenger-card {
+    position: relative;
+    font: 100% Arial, Helvetica, sans-serif;
+      max-width: 400px;
+      margin: 0px auto;
+      padding: 0px;
+      text-align: center;
+    background-color: #87CEEB;
+    border-radius: 22px;
+    height: 150px;
   }
   .image-test{
     width: 150;
@@ -249,9 +273,8 @@ text {
 .login-button {
   cursor: pointer;
   color: white;
-  padding: 12px;
+  padding: 30px;
   border-radius: 8px;
-  display: inline-block;
 }
 
 .facebook {
@@ -476,5 +499,12 @@ h3 {
     background-color: rgb(59, 53, 60);
     border-radius: 25px;
     margin: auto;
+  }
+  .messengercard {
+    width: 370px;
+    height: 75px;
+    position: relative; 
+    background-color: #4285f4;
+    left: 10px;
   }
 }

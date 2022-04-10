@@ -10,6 +10,7 @@ import { auth } from "./firebase"
 
 //import Auth from './Auth';
 export default function Messenger() {
+    //states
     const didMountRef = useRef(false)
     const [loading, setLoading] = useState(true)
     const { user } = useAuth()
@@ -21,14 +22,17 @@ export default function Messenger() {
         return new File([data], "test.jpg", { type: 'image/jpeg' });
     }
 
+    //useEffect to get the user
     useEffect(() => {
         if (!didMountRef.current) {
             didMountRef.current = true
 
+            //return user to login page if unsuccessful
             if (!user || user === null) {
                 history.push("/")
                 return
             }
+            // get the users information
             axios.get(
                 'https://api.chatengine.io/users/me',
                 {
@@ -42,7 +46,7 @@ export default function Messenger() {
                 .then(() => {
                     setLoading(false);
                 })
-
+                //if user doesnt exist, create one
                 .catch(e => {
                     let formdata = new FormData()
                     formdata.append('email', user.email)

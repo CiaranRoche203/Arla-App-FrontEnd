@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 import { auth } from "./firebase"
 import './../Styles/Register.css';
 export default function MessengerLogin() {
-
+//redirect to messenger page
   const checkLogin = () => {
     window.location.href = '/messenger'
   }
@@ -22,7 +22,7 @@ export default function MessengerLogin() {
         <div
           className='login-button google'
           onClick={() =>
-
+            //use auth from firebase to sign in
             auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider(),
             checkLogin()
             )}

@@ -8,20 +8,21 @@ const AuthContext = React.createContext()
 
 export function useAuth() { return useContext(AuthContext) }
 
+//function to check the user
 export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
   const history = useHistory()
 
+  //set the user that is signing in
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       setUser(user)
       setLoading(false)
-
-      //if (user) history.push('/messenger')
     })
   }, [user, history])
 
+  //set the user value
   const value = { user }
 
   return (

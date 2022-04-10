@@ -57,52 +57,62 @@ function Login() {
             </h1>
             <br></br>
             <br></br>
-            <div class="form-style-6a">
+            <div class='row'>
+                <div class='column'>
+                    <div class="form-style-6a">
 
-                <Card className="w-200 mx-auto mb-8 text-center bg-dark text-white">
-                    <Card.Body>
-                        <Card.Title>
-                            Welcome to the ARLA
-                            <br></br>
-                            <br>
-                            </br>
-                        </Card.Title>
-                        <GoogleLogin
-                            theme='dark'
-                            icon={true}
-                            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                        <Card className="w-200 mx-auto mb-8 text-center bg-dark text-white">
+                            <Card.Body>
+                                <Card.Title>
+                                    Welcome to the ARLA
+                                    <br></br>
+                                    <br>
+                                    </br>
+                                </Card.Title>
+                                <GoogleLogin
+                                    theme='dark'
+                                    icon={true}
+                                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
 
-                            buttonText="Login With Google"
-                            onSuccess={onSuccess}
-                            onFailure={onFailure}
-                            cookiePolicy={'single_host_origin'}
-                            isSignedIn={true}
-                        />
-                    </Card.Body>
-                </Card>
-                
-
-            </div>
-            <div id='login-card'>
-
-                    <h2>Welcome to ARLA Messenger!</h2>
-                    <br>
-                    </br>
-                    <div
-                        className='login-button google'
-                        onClick={() =>
-
-                            auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider(),
-                                checkLogin()
-                            )}
-                    >
-                        <GoogleOutlined /> Sign In with Google
+                                    buttonText="Login With Google"
+                                    onSuccess={onSuccess}
+                                    onFailure={onFailure}
+                                    cookiePolicy={'single_host_origin'}
+                                    isSignedIn={true}
+                                />
+                            </Card.Body>
+                        </Card>
                     </div>
-
-                    <br /><br />
-
                 </div>
-        </div>
+                <div class='column'>
+                    <div >
+                    <h2>Welcome to ARLA Messenger!</h2>
+                        <Card className="w-2 mx-auto mb-4 text-center messengercard">
+                        
+                        <br>
+                        </br>
+                        <div
+                            className='login-button google'
+                            onClick={() =>
+
+                                auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider(),
+                                    checkLogin()
+                                )}
+                        >
+                            <GoogleOutlined /> Sign In with Google
+                        </div>
+
+                        <br /><br />
+
+                        </Card>
+
+                        
+                    </div>
+                </div>
+            </div>
+
+
+        </div >
 
     );
 }
